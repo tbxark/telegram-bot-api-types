@@ -3,8 +3,8 @@ package typescript
 import (
 	_ "embed"
 	"encoding/json"
-	"github.com/TBXark/telegram-bot-api-types/internal/generator/tmpl"
-	"github.com/TBXark/telegram-bot-api-types/internal/scrape"
+	"github.com/tbxark/telegram-bot-api-types/internal/generator/tmpl"
+	"github.com/tbxark/telegram-bot-api-types/internal/scrape"
 	"os"
 	"path/filepath"
 )

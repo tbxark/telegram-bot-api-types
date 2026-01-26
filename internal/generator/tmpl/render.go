@@ -1,7 +1,7 @@
 package tmpl
 
 import (
-	"github.com/TBXark/telegram-bot-api-types/internal/scrape"
+	"github.com/tbxark/telegram-bot-api-types/internal/scrape"
 	"io"
 	"strings"
 	"text/template"

@@ -2,10 +2,10 @@ package main
 
 import (
 	"flag"
-	"github.com/TBXark/telegram-bot-api-types/internal/generator/spec"
-	"github.com/TBXark/telegram-bot-api-types/internal/generator/swift"
-	"github.com/TBXark/telegram-bot-api-types/internal/generator/typescript"
-	"github.com/TBXark/telegram-bot-api-types/internal/scrape"
+	"github.com/tbxark/telegram-bot-api-types/internal/generator/spec"
+	"github.com/tbxark/telegram-bot-api-types/internal/generator/swift"
+	"github.com/tbxark/telegram-bot-api-types/internal/generator/typescript"
+	"github.com/tbxark/telegram-bot-api-types/internal/scrape"
 	"log"
 	"strings"
 )

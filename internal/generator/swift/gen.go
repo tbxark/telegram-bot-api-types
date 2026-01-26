@@ -8,8 +8,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/TBXark/telegram-bot-api-types/internal/generator/tmpl"
-	"github.com/TBXark/telegram-bot-api-types/internal/scrape"
+	"github.com/tbxark/telegram-bot-api-types/internal/generator/tmpl"
+	"github.com/tbxark/telegram-bot-api-types/internal/scrape"
 )
 
 //go:embed swift.tmpl

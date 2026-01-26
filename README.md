@@ -15,7 +15,7 @@ Automatically generate type definition files for the Telegram Bot API in multipl
 ### Installation
 
 ```sh
-go install github.com/TBXark/telegram-bot-api-types@latest
+go install github.com/tbxark/telegram-bot-api-types@latest
 ```
 
 ### Usage 

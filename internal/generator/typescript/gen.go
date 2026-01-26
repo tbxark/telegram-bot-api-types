@@ -2,7 +2,7 @@ package typescript
 
 import (
 	"fmt"
-	"github.com/TBXark/telegram-bot-api-types/internal/scrape"
+	"github.com/tbxark/telegram-bot-api-types/internal/scrape"
 	"strings"
 )
 
