@@ -1,6 +1,6 @@
 {
   "name": "telegram-bot-api-jsdoc",
-  "version": "9.3.0",
+  "version": "9.4.0",
   "description": "Telegram Bot API types",
   "repository": "git@github.com:TBXark/telegram-bot-api-types.git",
   "type": "module",
