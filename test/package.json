@@ -6,17 +6,18 @@
   "type": "module",
   "author": "TBXark",
   "license": "MIT",
+  "packageManager": "pnpm@12.21.0",
   "scripts": {
-    "test:dts": "../node_modules/.bin/tsx test/dts.test.ts",
+    "test:dts": "tsx dts.test.ts",
     "test:jsdoc": "node jsdoc.test.js"
   },
   "dependencies": {
-    "telegram-bot-api-jsdoc": "../dist/jsdoc",
-    "telegram-bot-api-types": "../dist/dts"
+    "telegram-bot-api-jsdoc": "link:../dist/jsdoc",
+    "telegram-bot-api-types": "link:../dist/dts"
   },
   "devDependencies": {
-    "@types/node": "^22.5.0",
-    "undici": "^7.1.0",
-    "tsx": "^4.17.0"
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "undici": "^8.12.4"
   }
 }
