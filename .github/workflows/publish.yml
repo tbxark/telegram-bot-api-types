@@ -1,0 +1,68 @@
+name: Publish npm
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - dist/dts/package.json
+      - dist/jsdoc/package.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [dist/dts, dist/jsdoc]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@latest
+
+      - name: Copy LICENSE
+        run: cp LICENSE ${{ matrix.package }}/LICENSE
+
+      - name: Publish if version is new
+        working-directory: ${{ matrix.package }}
+        run: |
+          name=$(node -p "require('./package.json').name")
+          ver=$(node -p "require('./package.json').version")
+          if npm view "$name@$ver" version >/dev/null 2>&1; then
+            echo "$name@$ver already published, skip."
+            exit 0
+          fi
+          npm publish --access public
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create tag and release if new
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ver=$(node -p "require('./dist/dts/package.json').version")
+          tag="v$ver"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "Release $tag already exists, skip."
+            exit 0
+          fi
+          gh release create "$tag" --target "$GITHUB_SHA" --title "$tag" --generate-notes
