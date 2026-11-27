@@ -95,7 +95,7 @@ extension TelegramAPI {
      * At most one of the optional fields can be present in any given update.
     */
     public class Update: Codable {
-        /** Integer | The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially. */
+        /** Integer | The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then the identifier of the next update will be chosen randomly instead of sequentially. */
         public let update_id: Int
         /** Message | Optional. New incoming message of any kind - text, photo, sticker, etc. */
         public let message: Message?
@@ -117,7 +117,7 @@ extension TelegramAPI {
         public let guest_message: Message?
         /** MessageReactionUpdated | Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates. The update isn't received for reactions set by bots. */
         public let message_reaction: MessageReactionUpdated?
-        /** MessageReactionCountUpdated | Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates. The updates are grouped and can be sent with delay up to a few minutes. */
+        /** MessageReactionCountUpdated | Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates. The updates are grouped and can be sent with a delay of up to a few minutes. */
         public let message_reaction_count: MessageReactionCountUpdated?
         /** InlineQuery | Optional. New incoming inline query */
         public let inline_query: InlineQuery?
@@ -135,7 +135,7 @@ extension TelegramAPI {
         public let pre_checkout_query: PreCheckoutQuery?
         /** PaidMediaPurchased | Optional. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat */
         public let purchased_paid_media: PaidMediaPurchased?
-        /** Poll | Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot. */
+        /** Poll | Optional. New poll state. Bots receive only updates about manually stopped polls and polls which are sent by the bot. */
         public let poll: Poll?
         /** PollAnswer | Optional. A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by the bot itself. */
         public let poll_answer: PollAnswer?
@@ -149,7 +149,7 @@ extension TelegramAPI {
         public let chat_boost: ChatBoostUpdated?
         /** ChatBoostRemoved | Optional. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates. */
         public let removed_chat_boost: ChatBoostRemoved?
-        /** ManagedBotUpdated | Optional. A new bot was created to be managed by the bot, or token or owner of a managed bot was changed */
+        /** ManagedBotUpdated | Optional. A new bot was created to be managed by the bot, or the token or owner of a managed bot was changed */
         public let managed_bot: ManagedBotUpdated?
         /** BotSubscriptionUpdated | Optional. User payment subscription has changed */
         public let subscription: BotSubscriptionUpdated?
@@ -236,7 +236,7 @@ extension TelegramAPI {
      * This object contains full information about the bot itself.
     */
     public class BotFullInfo: Codable {
-        /** Integer | Unique identifier for this bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier for this bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let id: Int
         /** Boolean | Always True */
         public let is_bot: Bool
@@ -302,7 +302,7 @@ extension TelegramAPI {
      * This object represents a Telegram user or bot.
     */
     public class User: Codable {
-        /** Integer | Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let id: Int
         /** Boolean | True, if this user is a bot */
         public let is_bot: Bool
@@ -338,7 +338,7 @@ extension TelegramAPI {
      * This object represents a chat.
     */
     public class Chat: Codable {
-        /** Integer | Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let id: Int
         /** ChatType | Type of the chat, can be either "private", "group", "supergroup" or "channel" */
         public let type: ChatType
@@ -374,7 +374,7 @@ extension TelegramAPI {
      * This object contains full information about a chat.
     */
     public class ChatFullInfo: Codable {
-        /** Integer | Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let id: Int
         /** ChatType | Type of the chat, can be either "private", "group", "supergroup" or "channel" */
         public let type: ChatType
@@ -424,7 +424,7 @@ extension TelegramAPI {
         public let emoji_status_expiration_date: Int?
         /** String | Optional. Bio of the other party in a private chat */
         public let bio: String?
-        /** Boolean | Optional. True, if privacy settings of the other party in the private chat allows to use tg://user?id=<user_id> links only in chats with the user */
+        /** Boolean | Optional. True, if the privacy settings of the other party in the private chat allow using tg://user?id=<user_id> links only in chats with the user */
         public let has_private_forwards: Bool?
         /** Boolean | Optional. True, if the privacy settings of the other party restrict sending voice and video note messages in the private chat */
         public let has_restricted_voice_and_video_messages: Bool?
@@ -464,7 +464,7 @@ extension TelegramAPI {
         public let can_set_sticker_set: Bool?
         /** String | Optional. For supergroups, the name of the group's custom emoji sticker set. Custom emoji from this set can be used by all users and bots in the group. */
         public let custom_emoji_sticker_set_name: String?
-        /** Integer | Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let linked_chat_id: Int?
         /** ChatLocation | Optional. For supergroups, the location to which the supergroup is connected */
         public let location: ChatLocation?
@@ -685,21 +685,21 @@ extension TelegramAPI {
         public let chat_owner_changed: ChatOwnerChanged?
         /** String | Optional. A chat title was changed to this value */
         public let new_chat_title: String?
-        /** Array of PhotoSize | Optional. A chat photo was change to this value */
+        /** Array of PhotoSize | Optional. A chat photo was changed to this value */
         public let new_chat_photo: Array<PhotoSize>?
         /** Boolean | Optional. Service message: the chat photo was deleted */
         public let delete_chat_photo: Bool?
         /** Boolean | Optional. Service message: the group has been created */
         public let group_chat_created: Bool?
-        /** Boolean | Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup. */
+        /** Boolean | Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to the very first message in a directly created supergroup. */
         public let supergroup_chat_created: Bool?
-        /** Boolean | Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel. */
+        /** Boolean | Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to the very first message in a channel. */
         public let channel_chat_created: Bool?
         /** MessageAutoDeleteTimerChanged | Optional. Service message: auto-delete timer settings changed in the chat */
         public let message_auto_delete_timer_changed: MessageAutoDeleteTimerChanged?
-        /** Integer | Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let migrate_to_chat_id: Int?
-        /** Integer | Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let migrate_from_chat_id: Int?
         /** MaybeInaccessibleMessage | Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply. */
         public let pinned_message: MaybeInaccessibleMessage?
@@ -932,7 +932,7 @@ extension TelegramAPI {
      * This object represents a unique message identifier.
     */
     public class MessageId: Codable {
-        /** Integer | Unique message identifier. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent. */
+        /** Integer | Unique message identifier. In specific instances (e.g., a message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent. */
         public let message_id: Int
 
         public init(message_id: Int) {
@@ -1009,7 +1009,7 @@ extension TelegramAPI {
         public let offset: Int
         /** Integer | Length of the entity in UTF-16 code units */
         public let length: Int
-        /** String | Optional. For "text_link" only, URL that will be opened after user taps on the text */
+        /** String | Optional. For "text_link" only, URL that will be opened after the user taps on the text */
         public let url: String?
         /** User | Optional. For "text_mention" only, the mentioned user */
         public let user: User?
@@ -1176,7 +1176,7 @@ extension TelegramAPI {
         public let quote_parse_mode: String?
         /** Array of MessageEntity | Optional. A JSON-serialized list of special entities that appear in the quote. It can be specified instead of quote_parse_mode. */
         public let quote_entities: Array<MessageEntity>?
-        /** Array of RichText | Optional. A JSON-serialized list of quoted parts of the rich message to be replied to. Must contain one element for each quoted text of the message in the order of their appearance. Each of the following is a separate quoted text: the text of a paragraph, a heading, a preformatted block, a footer, or a mathematical expression; the text and the credit of a block quotation or a pull quotation; the summary of a details block; the caption and each cell of a table; the text and the credit of a caption of a media block, a collage, a slideshow, or a map. Texts of blocks nested in lists, block quotations, details, collages, and slideshows are separate quoted texts too. The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept, and rich texts must be nested in the same way as in the message received from the server. Mathematical expressions must be quoted entirely. Buttons in RichBlockButtons, anchors and dividers can't be quoted. Up to 32 quoted texts with total length up to 1024 characters can be specified. Only plain text, RichTextBold, RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler, RichTextSubscript, RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji, RichTextMathematicalExpression, and arrays of them are kept in the quote; other rich text types are replaced with their text. If non-empty, then quote, quote_parse_mode and quote_entities are ignored. */
+        /** Array of RichText | Optional. A JSON-serialized list of quoted parts of the rich message to be replied to. Must contain one element for each quoted text of the message in the order of their appearance. Each of the following is a separate quoted text: the text of a paragraph, a heading, a preformatted block, a footer, or a mathematical expression; the text and the credit of a block quotation or a pull quotation; the summary of a details block; the caption and each cell of a table; the text and the credit of a caption of a media block, a collage, a slideshow, or a map. Texts of blocks nested in lists, block quotations, details, collages, and slideshows are separate quoted texts too. The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept, and rich texts must be nested in the same way as in the message received from the server. Mathematical expressions must be quoted entirely. Buttons in RichBlockButtons, anchors and dividers can't be quoted. Up to 32 quoted texts with a total length of up to 1024 characters can be specified. Only plain text, RichTextBold, RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler, RichTextSubscript, RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji, RichTextMathematicalExpression, and arrays of them are kept in the quote; other rich text types are replaced with their text. If non-empty, then quote, quote_parse_mode and quote_entities are ignored. */
         public let quote_rich_texts: Array<RichText>?
         /** Integer | Optional. Position of the quote in the original message in UTF-16 code units. For quotes from rich messages, it is the position in the text formed by joining plain texts of all quotable texts of the message, separated by line feeds. */
         public let quote_position: Int?
@@ -1204,6 +1204,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#ephemeralmessageparameters  
+     * Describes the parameters of an ephemeral message to be sent.
     */
     public class EphemeralMessageParameters: Codable {
         /** Integer | Optional. Identifier of the user who will receive the message; required unless the message is sent as an ephemeral reply to a callback query. If omitted, then the parameter chat_id of the method is ignored. If specified together with callback_query_id, then it must be the identifier of the user who pressed the button. Must be omitted for messages sent in chats where the bot isn't a member, unless the message is a reply to an ephemeral message. It is not guaranteed that the user will receive the message, especially if they are offline. See here for more details. */
@@ -1412,7 +1413,7 @@ extension TelegramAPI {
         public let file_name: String?
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(file_id: String, file_unique_id: String, width: Int, height: Int, duration: Int, thumbnail: PhotoSize? = nil, file_name: String? = nil, mime_type: String? = nil, file_size: Int? = nil) {
@@ -1449,7 +1450,7 @@ extension TelegramAPI {
         public let file_name: String?
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
         /** PhotoSize | Optional. Thumbnail of the album cover to which the music file belongs */
         public let thumbnail: PhotoSize?
@@ -1484,7 +1485,7 @@ extension TelegramAPI {
         public let file_name: String?
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(file_id: String, file_unique_id: String, thumbnail: PhotoSize? = nil, file_name: String? = nil, mime_type: String? = nil, file_size: Int? = nil) {
@@ -1506,9 +1507,9 @@ extension TelegramAPI {
     public class LivePhoto: Codable {
         /** Array of PhotoSize | Optional. Available sizes of the corresponding static photo */
         public let photo: Array<PhotoSize>?
-        /** String | Identifier for the video file which can be used to download or reuse the file */
+        /** String | Identifier for the video file, which can be used to download or reuse the file */
         public let file_id: String
-        /** String | Unique identifier for the video file which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. */
+        /** String | Unique identifier for the video file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. */
         public let file_unique_id: String
         /** Integer | Video width as defined by the sender */
         public let width: Int
@@ -1518,7 +1519,7 @@ extension TelegramAPI {
         public let duration: Int
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(photo: Array<PhotoSize>? = nil, file_id: String, file_unique_id: String, width: Int, height: Int, duration: Int, mime_type: String? = nil, file_size: Int? = nil) {
@@ -1568,7 +1569,7 @@ extension TelegramAPI {
         public let height: Int
         /** String | Codec that was used to encode the video, for example, "h264", "h265", or "av01" */
         public let codec: String
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(file_id: String, file_unique_id: String, width: Int, height: Int, codec: String, file_size: Int? = nil) {
@@ -1610,7 +1611,7 @@ extension TelegramAPI {
         public let file_name: String?
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(file_id: String, file_unique_id: String, width: Int, height: Int, duration: Int, thumbnail: PhotoSize? = nil, cover: Array<PhotoSize>? = nil, start_timestamp: Int? = nil, qualities: Array<VideoQuality>? = nil, file_name: String? = nil, mime_type: String? = nil, file_size: Int? = nil) {
@@ -1674,7 +1675,7 @@ extension TelegramAPI {
         public let duration: Int
         /** String | Optional. MIME type of the file as defined by the sender */
         public let mime_type: String?
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
 
         public init(file_id: String, file_unique_id: String, duration: Int, mime_type: String? = nil, file_size: Int? = nil) {
@@ -1874,7 +1875,7 @@ extension TelegramAPI {
         public let first_name: String
         /** String | Optional. Contact's last name */
         public let last_name: String?
-        /** Integer | Optional. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Optional. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let user_id: Int?
         /** String | Optional. Additional data about the contact in the form of a vCard */
         public let vcard: String?
@@ -2229,9 +2230,9 @@ extension TelegramAPI {
         public let type: String
         /** Boolean | True, if the poll allows multiple answers */
         public let allows_multiple_answers: Bool
-        /** Boolean | True, if the poll allows to change the chosen answer options */
+        /** Boolean | True, if the poll allows changing the chosen answer options */
         public let allows_revoting: Bool
-        /** Boolean | True if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours */
+        /** Boolean | True, if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours */
         public let members_only: Bool
         /** Array of String | Optional. A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which users can vote in the poll. The country code "FT" is used for users with anonymous numbers. If omitted, then users from any country can participate in the poll. */
         public let country_codes: Array<String>?
@@ -2405,7 +2406,7 @@ extension TelegramAPI {
         public let horizontal_accuracy: Float?
         /** Integer | Optional. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only. */
         public let live_period: Int?
-        /** Integer | Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only. */
+        /** Integer | Optional. The direction in which the user is moving, in degrees; 1-360. For active live locations only. */
         public let heading: Int?
         /** Integer | Optional. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only. */
         public let proximity_alert_radius: Int?
@@ -2531,7 +2532,7 @@ extension TelegramAPI {
     public class ManagedBotUpdated: Codable {
         /** User | User that created the bot */
         public let user: User
-        /** User | Information about the bot. Token of the bot can be fetched using the method getManagedBotToken. */
+        /** User | Information about the bot. The token of the bot can be fetched using the method getManagedBotToken. */
         public let bot: User
 
         public init(user: User, bot: User) {
@@ -3058,7 +3059,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#generalforumtopichidden  
-     * This object represents a service message about General forum topic hidden in the chat. Currently holds no information.
+     * This object represents a service message about the General forum topic hidden in the chat. Currently holds no information.
     */
     public class GeneralForumTopicHidden: Codable {
 
@@ -3070,7 +3071,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#generalforumtopicunhidden  
-     * This object represents a service message about General forum topic unhidden in the chat. Currently holds no information.
+     * This object represents a service message about the General forum topic unhidden in the chat. Currently holds no information.
     */
     public class GeneralForumTopicUnhidden: Codable {
 
@@ -3132,7 +3133,7 @@ extension TelegramAPI {
     public class ChatShared: Codable {
         /** Integer | Identifier of the request */
         public let request_id: Int
-        /** Integer | Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means. */
+        /** Integer | Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means. */
         public let chat_id: Int
         /** String | Optional. Title of the chat, if the title was requested by the bot */
         public let title: String?
@@ -3425,13 +3426,13 @@ extension TelegramAPI {
         public let chats: Array<Chat>
         /** Integer | Point in time (Unix timestamp) when winners of the giveaway will be selected */
         public let winners_selection_date: Int
-        /** Integer | The number of users which are supposed to be selected as winners of the giveaway */
+        /** Integer | The number of users who are supposed to be selected as winners of the giveaway */
         public let winner_count: Int
         /** Boolean | Optional. True, if only users who join the chats after the giveaway started should be eligible to win */
         public let only_new_members: Bool?
         /** Boolean | Optional. True, if the list of giveaway winners will be visible to everyone */
         public let has_public_winners: Bool?
-        /** String | Optional. Description of additional giveaway prize */
+        /** String | Optional. Description of an additional giveaway prize */
         public let prize_description: String?
         /** Array of String | Optional. A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which eligible users for the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number that was bought on Fragment can always participate in giveaways. */
         public let country_codes: Array<String>?
@@ -3482,7 +3483,7 @@ extension TelegramAPI {
         public let only_new_members: Bool?
         /** Boolean | Optional. True, if the giveaway was canceled because the payment for it was refunded */
         public let was_refunded: Bool?
-        /** String | Optional. Description of additional giveaway prize */
+        /** String | Optional. Description of an additional giveaway prize */
         public let prize_description: String?
 
         public init(chat: Chat, giveaway_message_id: Int, winners_selection_date: Int, winner_count: Int, winners: Array<User>, additional_chat_count: Int? = nil, prize_star_count: Int? = nil, premium_subscription_month_count: Int? = nil, unclaimed_prize_count: Int? = nil, only_new_members: Bool? = nil, was_refunded: Bool? = nil, prize_description: String? = nil) {
@@ -3600,7 +3601,7 @@ extension TelegramAPI {
     public class SuggestedPostParameters: Codable {
         /** SuggestedPostPrice | Optional. Proposed price for the post. If the field is omitted, then the post is unpaid. */
         public let price: SuggestedPostPrice?
-        /** Integer | Optional. Proposed send date of the post. If specified, then the date must be between 300 second and 2678400 seconds (30 days) in the future. If the field is omitted, then the post can be published at any time within 30 days at the sole discretion of the user who approves it. */
+        /** Integer | Optional. Proposed send date of the post. If specified, then the date must be between 300 seconds and 2678400 seconds (30 days) in the future. If the field is omitted, then the post can be published at any time within 30 days at the sole discretion of the user who approves it. */
         public let send_date: Int?
 
         public init(price: SuggestedPostPrice? = nil, send_date: Int? = nil) {
@@ -3616,7 +3617,7 @@ extension TelegramAPI {
      * Describes a topic of a direct messages chat.
     */
     public class DirectMessagesTopic: Codable {
-        /** Integer | Unique identifier of the topic. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier of the topic. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let topic_id: Int
         /** User | Optional. Information about the user that created the topic. Currently, it is always present. */
         public let user: User?
@@ -3631,7 +3632,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#userprofilephotos  
-     * This object represent a user's profile pictures.
+     * This object represents a user's profile pictures.
     */
     public class UserProfilePhotos: Codable {
         /** Integer | Total number of profile pictures the target user has */
@@ -3674,7 +3675,7 @@ extension TelegramAPI {
         public let file_id: String
         /** String | Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file. */
         public let file_unique_id: String
-        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value. */
+        /** Integer | Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value. */
         public let file_size: Int?
         /** String | Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file. */
         public let file_path: String?
@@ -3719,7 +3720,7 @@ extension TelegramAPI {
         public let one_time_keyboard: Bool?
         /** String | Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters */
         public let input_field_placeholder: String?
-        /** Boolean | Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard. */
+        /** Boolean | Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user requests to change the bot's language, and the bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard. */
         public let selective: Bool?
         /** Boolean | Optional. Pass True if the reply interface must be shown to the user, as if they had manually selected the bot's message and tapped 'Reply' */
         public let force_reply: Bool?
@@ -3814,7 +3815,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#keyboardbuttonrequestchat  
-     * This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted requested rights in the chat if appropriate. More about requesting chats: https://core.telegram.org/bots/features#chat-and-user-selection.
+     * This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted the requested rights in the chat if appropriate. More about requesting chats: https://core.telegram.org/bots/features#chat-and-user-selection.
     */
     public class KeyboardButtonRequestChat: Codable {
         /** Integer | Signed 32-bit identifier of the request, which will be received back in the ChatShared object. Must be unique within the message. */
@@ -3880,7 +3881,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#keyboardbuttonpolltype  
-     * This object represents type of a poll, which is allowed to be created and sent when the corresponding button is pressed.
+     * This object represents the type of a poll, which is allowed to be created and sent when the corresponding button is pressed.
     */
     public class KeyboardButtonPollType: Codable {
         /** String | Optional. If quiz is passed, the user will be allowed to create only polls in the quiz mode. If regular is passed, only regular polls will be allowed. Otherwise, the user will be allowed to create a poll of any type. */
@@ -3898,9 +3899,9 @@ extension TelegramAPI {
      * Upon receiving a message with this object, Telegram clients will remove the current custom keyboard and display the default letter-keyboard. By default, custom keyboards are displayed until a new keyboard is sent by a bot. An exception is made for one-time keyboards that are hidden immediately after the user presses a button (see ReplyKeyboardMarkup). Not supported in channels and for messages sent on behalf of a business account.
     */
     public class ReplyKeyboardRemove: Codable {
-        /** Boolean | Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup) */
+        /** Boolean | Requests clients to remove the custom keyboard (the user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup) */
         public let remove_keyboard: Bool
-        /** Boolean | Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet. */
+        /** Boolean | Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user votes in a poll, and the bot returns a confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet. */
         public let selective: Bool?
 
         public init(remove_keyboard: Bool, selective: Bool? = nil) {
@@ -3958,7 +3959,7 @@ extension TelegramAPI {
         public let copy_text: CopyTextButton?
         /** CallbackGame | Optional. Description of the game that will be launched when the user presses the button. NOTE: This type of button must always be the first button in the first row. */
         public let callback_game: CallbackGame?
-        /** Boolean | Optional. Specify True, to send a Pay button. Substrings "⭐" and "XTR" in the buttons's text will be replaced with a Telegram Star icon. NOTE: This type of button must always be the first button in the first row and can only be used in invoice messages. */
+        /** Boolean | Optional. Specify True to send a Pay button. Substrings "⭐" and "XTR" in the button's text will be replaced with a Telegram Star icon. NOTE: This type of button must always be the first button in the first row and can only be used in invoice messages. */
         public let pay: Bool?
         /** DisabledButton | Optional. If set, then the button is disabled and does nothing */
         public let disabled: DisabledButton?
@@ -4076,7 +4077,7 @@ extension TelegramAPI {
         public let inline_message_id: String?
         /** String | Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games. */
         public let chat_instance: String
-        /** String | Optional. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data. */
+        /** String | Optional. Data associated with the callback button. Be aware that the message that originated the query can contain no callback buttons with this data. */
         public let data: String?
         /** String | Optional. Short name of a Game to be returned, serves as the unique identifier for the game */
         public let game_short_name: String?
@@ -4291,7 +4292,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#forcereply  
-     * Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. Not supported in channels and for messages sent on behalf of a user account.
+     * Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. Not supported in channels and for messages sent on behalf of a business account.
     */
     public class ForceReply: Codable {
         /** Boolean | Shows reply interface to the user, as if they had manually selected the bot's message and tapped 'Reply' */
@@ -4315,7 +4316,7 @@ extension TelegramAPI {
      * Represents a community (a group of chats).
     */
     public class Community: Codable {
-        /** Integer | Unique identifier for this community. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Unique identifier for this community. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let id: Int
         /** String | Name of the community */
         public let name: String
@@ -4369,7 +4370,7 @@ extension TelegramAPI {
         public let is_revoked: Bool
         /** String | Optional. Invite link name */
         public let name: String?
-        /** Integer | Optional. Point in time (Unix timestamp) when the link will expire or has been expired */
+        /** Integer | Optional. Point in time (Unix timestamp) when the link will expire or has expired */
         public let expire_date: Int?
         /** Integer | Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999 */
         public let member_limit: Int?
@@ -4811,7 +4812,7 @@ extension TelegramAPI {
         public let chat: Chat
         /** User | User that sent the join request */
         public let from: User
-        /** Integer | Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot can use this identifier for 5 minutes to send messages until the join request is processed, assuming no other administrator contacted the user. */
+        /** Integer | Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. The bot can use this identifier for 5 minutes to send messages until the join request is processed, assuming no other administrator contacted the user. */
         public let user_chat_id: Int
         /** Integer | Date the request was sent in Unix time */
         public let date: Int
@@ -4993,10 +4994,10 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#userrating  
-     * This object describes the rating of a user based on their Telegram Star spendings.
+     * This object describes the rating of a user based on their Telegram Star spending.
     */
     public class UserRating: Codable {
-        /** Integer | Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely reason for concern. */
+        /** Integer | Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely a reason for concern. */
         public let level: Int
         /** Integer | Numerical value of the user's rating; the higher the rating, the better */
         public let rating: Int
@@ -5434,7 +5435,7 @@ extension TelegramAPI {
         public let reaction_type: ReactionType
         /** Boolean | Optional. Pass True if the reaction area has a dark background */
         public let is_dark: Bool?
-        /** Boolean | Optional. Pass True if reaction area corner is flipped */
+        /** Boolean | Optional. Pass True if the reaction area corner is flipped */
         public let is_flipped: Bool?
 
         public init(type: String, reaction_type: ReactionType, is_dark: Bool? = nil, is_flipped: Bool? = nil) {
@@ -5472,7 +5473,7 @@ extension TelegramAPI {
     public class StoryAreaTypeWeather: Codable {
         /** String | Type of the area, always "weather" */
         public let type: String
-        /** Float | Temperature, in degree Celsius */
+        /** Float | Temperature, in degrees Celsius */
         public let temperature: Float
         /** String | Emoji representing the weather */
         public let emoji: String
@@ -5812,7 +5813,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#gifts  
-     * This object represent a list of gifts.
+     * This object represents a list of gifts.
     */
     public class Gifts: Codable {
         /** Array of Gift | The list of gifts */
@@ -5858,7 +5859,7 @@ extension TelegramAPI {
         public let name: String
         /** Sticker | The sticker that represents the unique gift */
         public let sticker: Sticker
-        /** Integer | The number of unique gifts that receive this model for every 1000 gifts upgraded */
+        /** Integer | The number of unique gifts that receive this symbol for every 1000 gifts upgraded */
         public let rarity_per_mille: Int
 
         public init(name: String, sticker: Sticker, rarity_per_mille: Int) {
@@ -5964,7 +5965,7 @@ extension TelegramAPI {
         public let symbol: UniqueGiftSymbol
         /** UniqueGiftBackdrop | Backdrop of the gift */
         public let backdrop: UniqueGiftBackdrop
-        /** Boolean | Optional. True, if the original regular gift was exclusively purchaseable by Telegram Premium subscribers */
+        /** Boolean | Optional. True, if the original regular gift was exclusively purchasable by Telegram Premium subscribers */
         public let is_premium: Bool?
         /** Boolean | Optional. True, if the gift was used to craft another gift and isn't available anymore */
         public let is_burned: Bool?
@@ -6706,7 +6707,7 @@ extension TelegramAPI {
     public class ChatBoostSourceGiftCode: Codable {
         /** String | Source of the boost, always "gift_code" */
         public let source: String
-        /** User | User for which the gift code was created */
+        /** User | User for whom the gift code was created */
         public let user: User
 
         public init(source: String, user: User) {
@@ -6918,7 +6919,7 @@ extension TelegramAPI {
         public let id: String
         /** User | Business account user that created the business connection */
         public let user: User
-        /** Integer | Identifier of a private chat with the user who created the business connection. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Identifier of a private chat with the user who created the business connection. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let user_chat_id: Int
         /** Integer | Date the connection was established in Unix time */
         public let date: Int
@@ -7028,7 +7029,7 @@ extension TelegramAPI {
      * Describes why a request was unsuccessful.
     */
     public class ResponseParameters: Codable {
-        /** Integer | Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier. */
+        /** Integer | Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier. */
         public let migrate_to_chat_id: Int?
         /** Integer | Optional. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated */
         public let retry_after: Int?
@@ -7113,7 +7114,7 @@ extension TelegramAPI {
         public let type: String
         /** String | File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let media: String
-        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: String?
         /** String | Optional. Caption of the animation to be sent, 0-1024 characters after entities parsing */
         public let caption: String?
@@ -7158,7 +7159,7 @@ extension TelegramAPI {
         public let type: String
         /** String | File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let media: String
-        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: String?
         /** String | Optional. Caption of the audio to be sent, 0-1024 characters after entities parsing */
         public let caption: String?
@@ -7197,7 +7198,7 @@ extension TelegramAPI {
         public let type: String
         /** String | File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let media: String
-        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: String?
         /** String | Optional. Caption of the document to be sent, 0-1024 characters after entities parsing */
         public let caption: String?
@@ -7401,7 +7402,7 @@ extension TelegramAPI {
         public let type: String
         /** String | File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let media: String
-        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: String?
         /** String | Optional. Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let cover: String?
@@ -7574,7 +7575,7 @@ extension TelegramAPI {
         public let type: String
         /** String | File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let media: String
-        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** String | Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: String?
         /** String | Optional. Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let cover: String?
@@ -7849,7 +7850,7 @@ extension TelegramAPI {
     public class MaskPosition: Codable {
         /** String | The part of the face relative to which the mask should be placed. One of "forehead", "eyes", "mouth", or "chin". */
         public let point: String
-        /** Float | Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position. */
+        /** Float | Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place the mask just to the left of the default mask position. */
         public let x_shift: Float
         /** Float | Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. For example, 1.0 will place the mask just below the default mask position. */
         public let y_shift: Float
@@ -7879,7 +7880,7 @@ extension TelegramAPI {
         public let emoji_list: Array<String>
         /** MaskPosition | Optional. Position where the mask should be placed on faces. For "mask" stickers only. */
         public let mask_position: MaskPosition?
-        /** Array of String | Optional. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For "regular" and "custom_emoji" stickers only. */
+        /** Array of String | Optional. List of 0-20 search keywords for the sticker with a total length of up to 64 characters. For "regular" and "custom_emoji" stickers only. */
         public let keywords: Array<String>?
 
         public init(sticker: String, format: String, emoji_list: Array<String>, mask_position: MaskPosition? = nil, keywords: Array<String>? = nil) {
@@ -7918,9 +7919,9 @@ extension TelegramAPI {
     public class InputRichMessage: Codable {
         /** Array of InputRichBlock | Optional. Content of the rich message to send described as a list of blocks */
         public let blocks: Array<InputRichBlock>?
-        /** String | Optional. Content of the rich message to send described using HTML formatting. See rich message formatting options for more details. Use media field to specify the media used in the message. */
+        /** String | Optional. Content of the rich message to send described using HTML formatting. See rich message formatting options for more details. Use the media field to specify the media used in the message. */
         public let html: String?
-        /** String | Optional. Content of the rich message to send described using Markdown formatting. See rich message formatting options for more details. Use media field to specify the media used in the message. */
+        /** String | Optional. Content of the rich message to send described using Markdown formatting. See rich message formatting options for more details. Use the media field to specify the media used in the message. */
         public let markdown: String?
         /** Array of InputRichMessageMedia | Optional. List of media that are specified in the markdown or html fields using tg://photo?id=, tg://video?id=, tg://document?id=, and tg://audio?id= links */
         public let media: Array<InputRichMessageMedia>?
@@ -8694,7 +8695,7 @@ extension TelegramAPI {
         public let type: String
         /** RichText | The link text */
         public let text: RichText
-        /** String | The name of the anchor. If the name is empty, then the link brings back to the top of the message. */
+        /** String | The name of the anchor. If the name is empty, then the link brings the user back to the top of the message. */
         public let anchor_name: String
 
         public init(type: String, text: RichText, anchor_name: String) {
@@ -9185,7 +9186,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#richblockexpandableblockquotation  
-     * A block quotation, corresponding to the HTML tag <blockquote> with custom attribute "expandable".
+     * A block quotation, corresponding to the HTML tag <blockquote> with the custom attribute "expandable".
     */
     public class RichBlockExpandableBlockQuotation: Codable {
         /** String | Type of the block, always "expandable_blockquote" */
@@ -9509,7 +9510,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#richblockthinking  
-     * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft, therefore it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
+     * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft; therefore, it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
     */
     public class RichBlockThinking: Codable {
         /** String | Type of the block, always "thinking" */
@@ -9911,7 +9912,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inputrichblockexpandableblockquotation  
-     * A block quotation, corresponding to the HTML tag <blockquote> with custom attribute "expandable".
+     * A block quotation, corresponding to the HTML tag <blockquote> with the custom attribute "expandable".
     */
     public class InputRichBlockExpandableBlockQuotation: Codable {
         /** String | Type of the block, always "expandable_blockquote" */
@@ -10226,7 +10227,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inputrichblockthinking  
-     * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft, therefore it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
+     * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft; therefore, it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
     */
     public class InputRichBlockThinking: Codable {
         /** String | Type of the block, always "thinking" */
@@ -10255,7 +10256,7 @@ extension TelegramAPI {
         public let query: String
         /** String | Offset of the results to be returned, can be controlled by the bot */
         public let offset: String
-        /** InlineQueryChatType | Optional. Type of the chat from which the inline query was sent. Can be either "sender" for a private chat with the inline query sender, "private", "group", "supergroup", or "channel". The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat. */
+        /** InlineQueryChatType | Optional. Type of the chat from which the inline query was sent. Can be either "sender" for a private chat with the inline query sender, "private", "group", "supergroup", or "channel". The chat type should always be known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat. */
         public let chat_type: InlineQueryChatType?
         /** Location | Optional. Sender location, only for bots that enabled user location requests via @BotFather or using the parameter needs_inline_query_location of the method setMySettings */
         public let location: Location?
@@ -10499,7 +10500,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inlinequeryresultphoto  
-     * Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.
+     * Represents a link to a photo. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.
     */
     public class InlineQueryResultPhoto: Codable {
         /** String | Type of the result, must be photo */
@@ -10553,7 +10554,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inlinequeryresultgif  
-     * Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
+     * Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
     */
     public class InlineQueryResultGif: Codable {
         /** String | Type of the result, must be gif */
@@ -10610,7 +10611,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inlinequeryresultmpeg4gif  
-     * Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
+     * Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
     */
     public class InlineQueryResultMpeg4Gif: Codable {
         /** String | Type of the result, must be mpeg4_gif */
@@ -10700,7 +10701,7 @@ extension TelegramAPI {
         public let description: String?
         /** InlineKeyboardMarkup | Optional. Inline keyboard attached to the message */
         public let reply_markup: InlineKeyboardMarkup?
-        /** InputMessageContent | Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video). */
+        /** InputMessageContent | Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML page as a result (e.g., a YouTube video). */
         public let input_message_content: InputMessageContent?
 
         public init(type: String, id: String, video_url: String, mime_type: String, thumbnail_url: String, title: String, caption: String? = nil, parse_mode: String? = nil, caption_entities: Array<MessageEntity>? = nil, show_caption_above_media: Bool? = nil, video_width: Int? = nil, video_height: Int? = nil, video_duration: Int? = nil, description: String? = nil, reply_markup: InlineKeyboardMarkup? = nil, input_message_content: InputMessageContent? = nil) {
@@ -10772,7 +10773,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inlinequeryresultvoice  
-     * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the the voice message.
+     * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the voice message.
     */
     public class InlineQueryResultVoice: Codable {
         /** String | Type of the result, must be voice */
@@ -11093,7 +11094,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#inlinequeryresultcachedgif  
-     * Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with specified content instead of the animation.
+     * Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
     */
     public class InlineQueryResultCachedGif: Codable {
         /** String | Type of the result, must be gif */
@@ -11579,7 +11580,7 @@ extension TelegramAPI {
         public let title: String
         /** String | Product description, 1-255 characters */
         public let description: String
-        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes. */
+        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes. */
         public let payload: String
         /** String | Optional. Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars. */
         public let provider_token: String?
@@ -11587,9 +11588,9 @@ extension TelegramAPI {
         public let currency: String
         /** Array of LabeledPrice | Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars. */
         public let prices: Array<LabeledPrice>
-        /** Integer | Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
+        /** Integer | Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
         public let max_tip_amount: Int?
-        /** Array of Integer | Optional. A JSON-serialized Array of suggested amounts of tip in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount. */
+        /** Array of Integer | Optional. A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount. */
         public let suggested_tip_amounts: Array<Int>?
         /** String | Optional. A JSON-serialized object for data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider. */
         public let provider_data: String?
@@ -11729,7 +11730,7 @@ extension TelegramAPI {
         public let from: User
         /** Location | Optional. Sender location, only for bots that enabled user location requests via @BotFather or using the parameter needs_inline_query_location of the method setMySettings */
         public let location: Location?
-        /** String | Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message. */
+        /** String | Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will also be received in callback queries and can be used to edit the message. */
         public let inline_message_id: String?
         /** String | The query that was used to obtain the result */
         public let query: String
@@ -11752,7 +11753,7 @@ extension TelegramAPI {
     public class LabeledPrice: Codable {
         /** String | Portion label */
         public let label: String
-        /** Integer | Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
+        /** Integer | Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
         public let amount: Int
 
         public init(label: String, amount: Int) {
@@ -11776,7 +11777,7 @@ extension TelegramAPI {
         public let start_parameter: String
         /** String | Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars */
         public let currency: String
-        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
+        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
         public let total_amount: Int
 
         public init(title: String, description: String, start_parameter: String, currency: String, total_amount: Int) {
@@ -11872,7 +11873,7 @@ extension TelegramAPI {
     public class SuccessfulPayment: Codable {
         /** String | Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars */
         public let currency: String
-        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
+        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
         public let total_amount: Int
         /** String | Bot-specified invoice payload */
         public let invoice_payload: String
@@ -11914,7 +11915,7 @@ extension TelegramAPI {
     public class RefundedPayment: Codable {
         /** String | Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars. Currently, always "XTR". */
         public let currency: String
-        /** Integer | Total refunded price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
+        /** Integer | Total refunded price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
         public let total_amount: Int
         /** String | Bot-specified invoice payload */
         public let invoice_payload: String
@@ -11945,7 +11946,7 @@ extension TelegramAPI {
         public let from: User
         /** String | Bot-specified invoice payload */
         public let invoice_payload: String
-        /** ShippingAddress | User specified shipping address */
+        /** ShippingAddress | User-specified shipping address */
         public let shipping_address: ShippingAddress
 
         public init(id: String, from: User, invoice_payload: String, shipping_address: ShippingAddress) {
@@ -11969,7 +11970,7 @@ extension TelegramAPI {
         public let from: User
         /** String | Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars */
         public let currency: String
-        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
+        /** Integer | Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). */
         public let total_amount: Int
         /** String | Bot-specified invoice payload */
         public let invoice_payload: String
@@ -12399,7 +12400,7 @@ extension TelegramAPI {
      * Describes Telegram Passport data shared with the bot by the user.
     */
     public class PassportData: Codable {
-        /** Array of EncryptedPassportElement | Array with information about documents and other Telegram Passport elements that was shared with the bot */
+        /** Array of EncryptedPassportElement | Array with information shared with the bot about documents and other Telegram Passport elements */
         public let data: Array<EncryptedPassportElement>
         /** EncryptedCredentials | Encrypted credentials required to decrypt the data */
         public let credentials: EncryptedCredentials
@@ -12636,7 +12637,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#passportelementerrorreverseside  
-     * Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse side of the document changes.
+     * Represents an issue with the reverse side of a document. The error is considered resolved when the file with the reverse side of the document changes.
     */
     public class PassportElementErrorReverseSide: Codable {
         /** String | Error source, must be reverse_side */
@@ -12756,7 +12757,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#passportelementerrortranslationfiles  
-     * Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation change.
+     * Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation changes.
     */
     public class PassportElementErrorTranslationFiles: Codable {
         /** String | Error source, must be translation_files */
@@ -12804,7 +12805,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /**
      * https://core.telegram.org/bots/api#game  
-     * This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.
+     * This object represents a game. Use BotFather to create and edit games; their short names will act as unique identifiers.
     */
     public class Game: Codable {
         /** String | Title of the game */
@@ -12887,7 +12888,7 @@ extension TelegramAPI {
         public let offset: Int?
         /** Integer | Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100. */
         public let limit: Int?
-        /** Integer | Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only. */
+        /** Integer | Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive; short polling should be used for testing purposes only. */
         public let timeout: Int?
         /** Array of String | A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to getUpdates, so unwanted updates may be received for a short period of time. */
         public let allowed_updates: Array<String>?
@@ -12926,7 +12927,7 @@ extension TelegramAPI {
         public let ip_address: String?
         /** Integer | The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to 40. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput. */
         public let max_connections: Int?
-        /** Array of String | A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time. */
+        /** Array of String | A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to setWebhook, so unwanted updates may be received for a short period of time. */
         public let allowed_updates: Array<String>?
         /** Boolean | Pass True to drop all pending updates */
         public let drop_pending_updates: Bool?
@@ -12951,7 +12952,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setwebhook
-     * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable amount of attempts. Returns True on success.
+     * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable number of attempts. Returns True on success.
      * If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter secret_token. If specified, the request will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as content.
      */
     public func setWebhook(params: SetWebhookParams) async throws -> SetWebhookResponse {
@@ -12992,7 +12993,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#getwebhookinfo
-     * Use this method to get current webhook status. Requires no parameters. On success, returns a WebhookInfo object. If the bot is using getUpdates, will return an object with the url field empty.
+     * Use this method to get the current webhook status. Requires no parameters. On success, returns a WebhookInfo object. If the bot is using getUpdates, it will return an object with the url field empty.
      */
     public func getWebhookInfo() async throws -> GetWebhookInfoResponse {
         let data = try await request("getWebhookInfo", [String: String]())
@@ -13006,7 +13007,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#getme
-     * A simple method for testing your bot's authentication token. Requires no parameters. Returns information about the bot in form of a BotFullInfo object.
+     * A simple method for testing your bot's authentication token. Requires no parameters. Returns information about the bot in the form of a BotFullInfo object.
      */
     public func getMe() async throws -> GetMeResponse {
         let data = try await request("getMe", [String: String]())
@@ -13020,7 +13021,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#logout
-     * Use this method to log out from the cloud Bot API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes. Returns True on success. Requires no parameters.
+     * Use this method to log out from the cloud Bot API server before launching the bot locally. You must log out the bot before running it locally; otherwise, there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log back in to the cloud Bot API server for 10 minutes. Returns True on success. Requires no parameters.
      */
     public func logOut() async throws -> LogOutResponse {
         let data = try await request("logOut", [String: String]())
@@ -13423,17 +13424,17 @@ extension TelegramAPI {
         public let ephemeral_message_parameters: EphemeralMessageParameters?
         /** InputFile or String | Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported. */
         public let live_photo: Either2<InputFile, String>
-        /** InputFile or String | The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported. */
+        /** InputFile or String | The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported. */
         public let photo: Either2<InputFile, String>
-        /** String | Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing */
+        /** String | Live photo caption (may also be used when resending live photos by file_id), 0-1024 characters after entities parsing */
         public let caption: String?
-        /** String | Mode for parsing entities in the video caption. See formatting options for more details. */
+        /** String | Mode for parsing entities in the live photo caption. See formatting options for more details. */
         public let parse_mode: String?
         /** Array of MessageEntity | A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode */
         public let caption_entities: Array<MessageEntity>?
         /** Boolean | Pass True if the caption must be shown above the message media */
         public let show_caption_above_media: Bool?
-        /** Boolean | Pass True if the video needs to be covered with a spoiler animation */
+        /** Boolean | Pass True if the live photo needs to be covered with a spoiler animation */
         public let has_spoiler: Bool?
         /** Boolean | Sends the message silently. Users will receive a notification with no sound. */
         public let disable_notification: Bool?
@@ -13515,7 +13516,7 @@ extension TelegramAPI {
         public let performer: String?
         /** String | Track name */
         public let title: String?
-        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: Either2<InputFile, String>?
         /** Boolean | Sends the message silently. Users will receive a notification with no sound. */
         public let disable_notification: Bool?
@@ -13563,7 +13564,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendaudio
-     * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
+     * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size; this limit may be changed in the future.
      * For sending voice messages, use the sendVoice method instead.
      */
     public func sendAudio(params: SendAudioParams) async throws -> SendAudioResponse {
@@ -13587,7 +13588,7 @@ extension TelegramAPI {
         public let ephemeral_message_parameters: EphemeralMessageParameters?
         /** InputFile or String | File to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let document: Either2<InputFile, String>
-        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: Either2<InputFile, String>?
         /** String | Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing */
         public let caption: String?
@@ -13641,7 +13642,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#senddocument
-     * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
+     * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size; this limit may be changed in the future.
      */
     public func sendDocument(params: SendDocumentParams) async throws -> SendDocumentResponse {
         let data = try await request("sendDocument", params)
@@ -13670,7 +13671,7 @@ extension TelegramAPI {
         public let width: Int?
         /** Integer | Video height */
         public let height: Int?
-        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: Either2<InputFile, String>?
         /** InputFile or String | Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let cover: Either2<InputFile, String>?
@@ -13739,7 +13740,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendvideo
-     * Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+     * Use this method to send video files; Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size; this limit may be changed in the future.
      */
     public func sendVideo(params: SendVideoParams) async throws -> SendVideoResponse {
         let data = try await request("sendVideo", params)
@@ -13768,9 +13769,9 @@ extension TelegramAPI {
         public let width: Int?
         /** Integer | Animation height */
         public let height: Int?
-        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: Either2<InputFile, String>?
-        /** String | Animation caption (may also be used when resending animation by file_id), 0-1024 characters after entities parsing */
+        /** String | Animation caption (may also be used when resending animations by file_id), 0-1024 characters after entities parsing */
         public let caption: String?
         /** String | Mode for parsing entities in the animation caption. See formatting options for more details. */
         public let parse_mode: String?
@@ -13828,7 +13829,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendanimation
-     * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+     * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
      */
     public func sendAnimation(params: SendAnimationParams) async throws -> SendAnimationResponse {
         let data = try await request("sendAnimation", params)
@@ -13902,7 +13903,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendvoice
-     * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
+     * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size; this limit may be changed in the future.
      */
     public func sendVoice(params: SendVoiceParams) async throws -> SendVoiceResponse {
         let data = try await request("sendVoice", params)
@@ -13929,7 +13930,7 @@ extension TelegramAPI {
         public let duration: Int?
         /** Integer | Video width and height, i.e. diameter of the video message */
         public let length: Int?
-        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
+        /** InputFile or String | Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files */
         public let thumbnail: Either2<InputFile, String>?
         /** Boolean | Sends the message silently. Users will receive a notification with no sound. */
         public let disable_notification: Bool?
@@ -13973,7 +13974,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendvideonote
-     * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent Message is returned.
+     * Use this method to send a rounded square MPEG4 video up to 1 minute long. On success, the sent Message is returned.
      */
     public func sendVideoNote(params: SendVideoNoteParams) async throws -> SendVideoNoteResponse {
         let data = try await request("sendVideoNote", params)
@@ -14118,7 +14119,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendsharedwidget
-     * Use this method to send again a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
+     * Use this method to resend a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
      */
     public func sendSharedWidget(params: SendSharedWidgetParams) async throws -> SendSharedWidgetResponse {
         let data = try await request("sendSharedWidget", params)
@@ -14141,7 +14142,7 @@ extension TelegramAPI {
         public let star_count: Int
         /** Array of InputPaidMedia | A JSON-serialized Array describing the media to be sent; up to 10 items */
         public let media: Array<InputPaidMedia>
-        /** String | Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes. */
+        /** String | Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user; use it for your internal processes. */
         public let payload: String?
         /** String | Media caption, 0-1024 characters after entities parsing */
         public let caption: String?
@@ -14245,7 +14246,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendmediagroup
-     * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
+     * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can only be grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
      */
     public func sendMediaGroup(params: SendMediaGroupParams) async throws -> SendMediaGroupResponse {
         let data = try await request("sendMediaGroup", params)
@@ -14322,7 +14323,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#sendlocation
-     * Use this method to send point on the map. On success, the sent Message is returned.
+     * Use this method to send a point on the map. On success, the sent Message is returned.
      */
     public func sendLocation(params: SendLocationParams) async throws -> SendLocationResponse {
         let data = try await request("sendLocation", params)
@@ -14507,7 +14508,7 @@ extension TelegramAPI {
         public let type: String?
         /** Boolean | Pass True if the poll allows multiple answers, defaults to False */
         public let allows_multiple_answers: Bool?
-        /** Boolean | Pass True if the poll allows to change chosen answer options, defaults to False for quizzes and to True for regular polls */
+        /** Boolean | Pass True if the poll allows changing the chosen answer options, defaults to False for quizzes and to True for regular polls */
         public let allows_revoting: Bool?
         /** Boolean | Pass True if the poll options must be shown in random order */
         public let shuffle_options: Bool?
@@ -14963,7 +14964,7 @@ extension TelegramAPI {
         public let chat_id: Either2<Int, String>
         /** Integer | Unique identifier of the target user */
         public let user_id: Int
-        /** Integer | Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only. */
+        /** Integer | Date when the user will be unbanned; Unix time. If the user is banned for more than 366 days or less than 30 seconds from the current time, they are considered to be banned forever. Applied for supergroups and channels only. */
         public let until_date: Int?
         /** Boolean | Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels. */
         public let revoke_messages: Bool?
@@ -15034,7 +15035,7 @@ extension TelegramAPI {
         public let permissions: ChatPermissions
         /** Boolean | Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission. */
         public let use_independent_chat_permissions: Bool?
-        /** Integer | Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever. */
+        /** Integer | Date when restrictions will be lifted for the user; Unix time. If the user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever. */
         public let until_date: Int?
         
         public init(chat_id: Either2<Int, String>, user_id: Int, permissions: ChatPermissions, use_independent_chat_permissions: Bool? = nil, until_date: Int? = nil) {
@@ -15080,7 +15081,7 @@ extension TelegramAPI {
         public let can_restrict_members: Bool?
         /** Boolean | Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him) */
         public let can_promote_members: Bool?
-        /** Boolean | Pass True if the administrator can change chat title, photo and other settings */
+        /** Boolean | Pass True if the administrator can change the chat title, photo and other settings */
         public let can_change_info: Bool?
         /** Boolean | Pass True if the administrator can invite new users to the chat */
         public let can_invite_users: Bool?
@@ -15290,7 +15291,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setchatpermissions
-     * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+     * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator right. Returns True on success.
      */
     public func setChatPermissions(params: SetChatPermissionsParams) async throws -> SetChatPermissionsResponse {
         let data = try await request("setChatPermissions", params)
@@ -15354,7 +15355,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#createchatinvitelink
-     * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as ChatInviteLink object.
+     * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
      */
     public func createChatInviteLink(params: CreateChatInviteLinkParams) async throws -> CreateChatInviteLinkResponse {
         let data = try await request("createChatInviteLink", params)
@@ -15430,7 +15431,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#createchatsubscriptioninvitelink
-     * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator rights. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
+     * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator right. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
      */
     public func createChatSubscriptionInviteLink(params: CreateChatSubscriptionInviteLinkParams) async throws -> CreateChatSubscriptionInviteLinkResponse {
         let data = try await request("createChatSubscriptionInviteLink", params)
@@ -15462,7 +15463,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editchatsubscriptioninvitelink
-     * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator rights. Returns the edited invite link as a ChatInviteLink object.
+     * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator right. Returns the edited invite link as a ChatInviteLink object.
      */
     public func editChatSubscriptionInviteLink(params: EditChatSubscriptionInviteLinkParams) async throws -> EditChatSubscriptionInviteLinkResponse {
         let data = try await request("editChatSubscriptionInviteLink", params)
@@ -15491,7 +15492,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#revokechatinvitelink
-     * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as ChatInviteLink object.
+     * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as a ChatInviteLink object.
      */
     public func revokeChatInviteLink(params: RevokeChatInviteLinkParams) async throws -> RevokeChatInviteLinkResponse {
         let data = try await request("revokeChatInviteLink", params)
@@ -16131,7 +16132,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editforumtopic
-     * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+     * Use this method to edit the name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
      */
     public func editForumTopic(params: EditForumTopicParams) async throws -> EditForumTopicResponse {
         let data = try await request("editForumTopic", params)
@@ -16160,7 +16161,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#closeforumtopic
-     * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+     * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
      */
     public func closeForumTopic(params: CloseForumTopicParams) async throws -> CloseForumTopicResponse {
         let data = try await request("closeForumTopic", params)
@@ -16189,7 +16190,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#reopenforumtopic
-     * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+     * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
      */
     public func reopenForumTopic(params: ReopenForumTopicParams) async throws -> ReopenForumTopicResponse {
         let data = try await request("reopenForumTopic", params)
@@ -16218,7 +16219,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#deleteforumtopic
-     * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator rights. Returns True on success.
+     * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator right. Returns True on success.
      */
     public func deleteForumTopic(params: DeleteForumTopicParams) async throws -> DeleteForumTopicResponse {
         let data = try await request("deleteForumTopic", params)
@@ -16276,7 +16277,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editgeneralforumtopic
-     * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+     * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
      */
     public func editGeneralForumTopic(params: EditGeneralForumTopicParams) async throws -> EditGeneralForumTopicResponse {
         let data = try await request("editGeneralForumTopic", params)
@@ -16302,7 +16303,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#closegeneralforumtopic
-     * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+     * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
      */
     public func closeGeneralForumTopic(params: CloseGeneralForumTopicParams) async throws -> CloseGeneralForumTopicResponse {
         let data = try await request("closeGeneralForumTopic", params)
@@ -16328,7 +16329,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#reopengeneralforumtopic
-     * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically unhidden if it was hidden. Returns True on success.
+     * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically unhidden if it was hidden. Returns True on success.
      */
     public func reopenGeneralForumTopic(params: ReopenGeneralForumTopicParams) async throws -> ReopenGeneralForumTopicResponse {
         let data = try await request("reopenGeneralForumTopic", params)
@@ -16354,7 +16355,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#hidegeneralforumtopic
-     * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically closed if it was open. Returns True on success.
+     * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically closed if it was open. Returns True on success.
      */
     public func hideGeneralForumTopic(params: HideGeneralForumTopicParams) async throws -> HideGeneralForumTopicResponse {
         let data = try await request("hideGeneralForumTopic", params)
@@ -16380,7 +16381,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#unhidegeneralforumtopic
-     * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+     * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
      */
     public func unhideGeneralForumTopic(params: UnhideGeneralForumTopicParams) async throws -> UnhideGeneralForumTopicResponse {
         let data = try await request("unhideGeneralForumTopic", params)
@@ -16735,7 +16736,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setmysettings
-     * Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
+     * Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
      */
     public func setMySettings(params: SetMySettingsParams) async throws -> SetMySettingsResponse {
         let data = try await request("setMySettings", params)
@@ -17125,7 +17126,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /** https://core.telegram.org/bots/api#getmydefaultadministratorrights */
     public struct GetMyDefaultAdministratorRightsParams: Codable {
-        /** Boolean | Pass True to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned. */
+        /** Boolean | Pass True to get the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be returned. */
         public let for_channels: Bool?
         
         public init(for_channels: Bool? = nil) {
@@ -17346,7 +17347,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /** https://core.telegram.org/bots/api#removechatverification */
     public struct RemoveChatVerificationParams: Codable {
-        /** Integer or String | Unique identifier for the target chat or username of the target bot or channel in the format @username */
+        /** Integer or String | Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username */
         public let chat_id: Either2<Int, String>
         
         public init(chat_id: Either2<Int, String>) {
@@ -17393,7 +17394,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#readbusinessmessage
-     * Marks incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
+     * Marks an incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
      */
     public func readBusinessMessage(params: ReadBusinessMessageParams) async throws -> ReadBusinessMessageResponse {
         let data = try await request("readBusinessMessage", params)
@@ -17422,7 +17423,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#deletebusinessmessages
-     * Delete messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
+     * Deletes messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
      */
     public func deleteBusinessMessages(params: DeleteBusinessMessagesParams) async throws -> DeleteBusinessMessagesResponse {
         let data = try await request("deleteBusinessMessages", params)
@@ -17454,7 +17455,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setbusinessaccountname
-     * Changes the first and last name of a managed business account. Requires the can_change_name business bot right. Returns True on success.
+     * Changes the first and last name of a managed business account. Requires the can_edit_name business bot right. Returns True on success.
      */
     public func setBusinessAccountName(params: SetBusinessAccountNameParams) async throws -> SetBusinessAccountNameResponse {
         let data = try await request("setBusinessAccountName", params)
@@ -17483,7 +17484,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setbusinessaccountusername
-     * Changes the username of a managed business account. Requires the can_change_username business bot right. Returns True on success.
+     * Changes the username of a managed business account. Requires the can_edit_username business bot right. Returns True on success.
      */
     public func setBusinessAccountUsername(params: SetBusinessAccountUsernameParams) async throws -> SetBusinessAccountUsernameResponse {
         let data = try await request("setBusinessAccountUsername", params)
@@ -17512,7 +17513,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setbusinessaccountbio
-     * Changes the bio of a managed business account. Requires the can_change_bio business bot right. Returns True on success.
+     * Changes the bio of a managed business account. Requires the can_edit_bio business bot right. Returns True on success.
      */
     public func setBusinessAccountBio(params: SetBusinessAccountBioParams) async throws -> SetBusinessAccountBioResponse {
         let data = try await request("setBusinessAccountBio", params)
@@ -17689,7 +17690,7 @@ extension TelegramAPI {
         public let exclude_from_blockchain: Bool?
         /** Boolean | Pass True to sort results by gift price instead of send date. Sorting is applied before pagination. */
         public let sort_by_price: Bool?
-        /** String | Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results */
+        /** String | Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results */
         public let offset: String?
         /** Integer | The maximum number of gifts to be returned; 1-100. Defaults to 100. */
         public let limit: Int?
@@ -17894,7 +17895,7 @@ extension TelegramAPI {
         public let owned_gift_id: String
         /** Boolean | Pass True to keep the original gift text, sender and receiver in the upgraded gift */
         public let keep_original_details: Bool?
-        /** Integer | The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If gift.prepaid_upgrade_star_count > 0, then pass 0, otherwise, the can_transfer_stars business bot right is required and gift.upgrade_star_count must be passed. */
+        /** Integer | The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If gift.prepaid_upgrade_star_count > 0, then pass 0; otherwise, the can_transfer_stars business bot right is required and gift.upgrade_star_count must be passed. */
         public let star_count: Int?
         
         public init(business_connection_id: String, owned_gift_id: String, keep_original_details: Bool? = nil, star_count: Int? = nil) {
@@ -17925,9 +17926,9 @@ extension TelegramAPI {
     public struct TransferGiftParams: Codable {
         /** String | Unique identifier of the business connection */
         public let business_connection_id: String
-        /** String | Unique identifier of the regular gift that should be transferred */
+        /** String | Unique identifier of the unique gift that should be transferred */
         public let owned_gift_id: String
-        /** Integer | Unique identifier of the chat which will own the gift. The chat must be active in the last 24 hours. */
+        /** Integer | Unique identifier of the chat which will own the gift. The chat must have been active in the last 24 hours. */
         public let new_owner_chat_id: Int
         /** Integer | The amount of Telegram Stars that will be paid for the transfer from the business account balance. If positive, then the can_transfer_stars business bot right is required. */
         public let star_count: Int?
@@ -17947,7 +17948,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#transfergift
-     * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires can_transfer_stars business bot right if the transfer is paid. Returns True on success.
+     * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires the can_transfer_stars business bot right if the transfer is paid. Returns True on success.
      */
     public func transferGift(params: TransferGiftParams) async throws -> TransferGiftResponse {
         let data = try await request("transferGift", params)
@@ -18266,7 +18267,7 @@ extension TelegramAPI {
         public let entities: Array<MessageEntity>?
         /** LinkPreviewOptions | Link preview generation options for the message */
         public let link_preview_options: LinkPreviewOptions?
-        /** InputRichMessage | New rich content of the message; required if text isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited. */
+        /** InputRichMessage | New rich content of the message; required if text isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited. */
         public let rich_message: InputRichMessage?
         /** InlineKeyboardMarkup | A JSON-serialized object for an inline keyboard */
         public let reply_markup: InlineKeyboardMarkup?
@@ -18292,7 +18293,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editmessagetext
-     * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+     * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      */
     public func editMessageText(params: EditMessageTextParams) async throws -> EditMessageTextResponse {
         let data = try await request("editMessageText", params)
@@ -18317,7 +18318,7 @@ extension TelegramAPI {
         public let parse_mode: String?
         /** Array of MessageEntity | A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode */
         public let caption_entities: Array<MessageEntity>?
-        /** Boolean | Pass True if the caption must be shown above the message media. Supported only for animation, photo and video messages. */
+        /** Boolean | Pass True if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages. */
         public let show_caption_above_media: Bool?
         /** InlineKeyboardMarkup | A JSON-serialized object for an inline keyboard */
         public let reply_markup: InlineKeyboardMarkup?
@@ -18342,7 +18343,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editmessagecaption
-     * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+     * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      */
     public func editMessageCaption(params: EditMessageCaptionParams) async throws -> EditMessageCaptionResponse {
         let data = try await request("editMessageCaption", params)
@@ -18383,7 +18384,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editmessagemedia
-     * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with a media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+     * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      */
     public func editMessageMedia(params: EditMessageMediaParams) async throws -> EditMessageMediaResponse {
         let data = try await request("editMessageMedia", params)
@@ -18439,7 +18440,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editmessagelivelocation
-     * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned.
+     * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned.
      */
     public func editMessageLiveLocation(params: EditMessageLiveLocationParams) async throws -> EditMessageLiveLocationResponse {
         let data = try await request("editMessageLiveLocation", params)
@@ -18477,7 +18478,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#stopmessagelivelocation
-     * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned, otherwise True is returned.
+     * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned; otherwise, True is returned.
      */
     public func stopMessageLiveLocation(params: StopMessageLiveLocationParams) async throws -> StopMessageLiveLocationResponse {
         let data = try await request("stopMessageLiveLocation", params)
@@ -18488,7 +18489,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /** https://core.telegram.org/bots/api#editmessagechecklist */
     public struct EditMessageChecklistParams: Codable {
-        /** String | Unique identifier of the business connection on behalf of which the message will be sent */
+        /** String | Unique identifier of the business connection on behalf of which the message to be edited was sent */
         public let business_connection_id: String
         /** Integer or String | Unique identifier for the target chat or username of the target bot in the format @username */
         public let chat_id: Either2<Int, String>
@@ -18623,7 +18624,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#editmessagereplymarkup
-     * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+     * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
      */
     public func editMessageReplyMarkup(params: EditMessageReplyMarkupParams) async throws -> EditMessageReplyMarkupResponse {
         let data = try await request("editMessageReplyMarkup", params)
@@ -18769,7 +18770,7 @@ extension TelegramAPI {
         public let parse_mode: String?
         /** Array of MessageEntity | A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode */
         public let caption_entities: Array<MessageEntity>?
-        /** Boolean | Pass True if the caption must be shown above the message media. Supported only for animation, photo and video messages. */
+        /** Boolean | Pass True if the caption must be shown above the message media. Supported only for animation, live photo, photo and video messages. */
         public let show_caption_above_media: Bool?
         /** InlineKeyboardMarkup | A JSON-serialized object for an inline keyboard */
         public let reply_markup: InlineKeyboardMarkup?
@@ -18843,7 +18844,7 @@ extension TelegramAPI {
         public let chat_id: Int
         /** Integer | Identifier of a suggested post message to approve */
         public let message_id: Int
-        /** Integer | Point in time (Unix timestamp) when the post is expected to be published; omit if the date has already been specified when the suggested post was created. If specified, then the date must be not more than 2678400 seconds (30 days) in the future. */
+        /** Integer | Point in time (Unix timestamp) when the post is expected to be published; omit if the date has already been specified when the suggested post was created. If specified, then the date must not be more than 2678400 seconds (30 days) in the future. */
         public let send_date: Int?
         
         public init(chat_id: Int, message_id: Int, send_date: Int? = nil) {
@@ -18929,8 +18930,8 @@ extension TelegramAPI {
      * - Bots can delete incoming messages in private chats.
      * - Bots granted can_post_messages permissions can delete outgoing messages in channels.
      * - If the bot is an administrator of a group, it can delete any message there.
-     * - If the bot has can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
-     * - If the bot has can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
+     * - If the bot has the can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
+     * - If the bot has the can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
      * Returns True on success.
      */
     public func deleteMessage(params: DeleteMessageParams) async throws -> DeleteMessageResponse {
@@ -19413,7 +19414,7 @@ extension TelegramAPI {
     public struct SetStickerKeywordsParams: Codable {
         /** String | File identifier of the sticker */
         public let sticker: String
-        /** Array of String | A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters */
+        /** Array of String | A JSON-serialized list of 0-20 search keywords for the sticker with a total length of up to 64 characters */
         public let keywords: Array<String>?
         
         public init(sticker: String, keywords: Array<String>? = nil) {
@@ -19588,7 +19589,7 @@ extension TelegramAPI {
 extension TelegramAPI {
     /** https://core.telegram.org/bots/api#sendrichmessage */
     public struct SendRichMessageParams: Codable {
-        /** String | Unique identifier of the business connection on behalf of which the message will be sent. Bot can send rich messages on behalf of a business account only if the corresponding user can send rich messages. */
+        /** String | Unique identifier of the business connection on behalf of which the message will be sent. The bot can send rich messages on behalf of a business account only if the corresponding user can send rich messages. */
         public let business_connection_id: String?
         /** Integer or String | Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query */
         public let chat_id: Either2<Int, String>?
@@ -19656,7 +19657,7 @@ extension TelegramAPI {
         public let message_thread_id: Int?
         /** Integer | Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation. */
         public let draft_id: Int
-        /** InputRichMessage | The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported. */
+        /** InputRichMessage | The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported. */
         public let rich_message: InputRichMessage
         /** Boolean | Pass True to show the user a button to stop further drafts. The bot will receive an Update "stopped_message_generation" if the user presses the button. */
         public let can_stop: Bool?
@@ -19743,7 +19744,7 @@ extension TelegramAPI {
         public let title: String
         /** String | Product description, 1-255 characters */
         public let description: String
-        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes. */
+        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes. */
         public let payload: String
         /** String | Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars. */
         public let provider_token: String?
@@ -19751,13 +19752,13 @@ extension TelegramAPI {
         public let currency: String
         /** Array of LabeledPrice | Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars. */
         public let prices: Array<LabeledPrice>
-        /** Integer | The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
+        /** Integer | The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
         public let max_tip_amount: Int?
-        /** Array of Integer | A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount. */
+        /** Array of Integer | A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount. */
         public let suggested_tip_amounts: Array<Int>?
         /** String | Unique deep-linking parameter. If left empty, forwarded copies of the sent message will have a Pay button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter. */
         public let start_parameter: String?
-        /** String | JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider. */
+        /** String | JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider. */
         public let provider_data: String?
         /** String | URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for. */
         public let photo_url: String?
@@ -19855,7 +19856,7 @@ extension TelegramAPI {
         public let title: String
         /** String | Product description, 1-255 characters */
         public let description: String
-        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes. */
+        /** String | Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes. */
         public let payload: String
         /** String | Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars. */
         public let provider_token: String?
@@ -19863,13 +19864,13 @@ extension TelegramAPI {
         public let currency: String
         /** Array of LabeledPrice | Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars. */
         public let prices: Array<LabeledPrice>
-        /** Integer | The number of seconds the subscription will be active for before the next payment. The currency must be set to "XTR" (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must no exceed 10000 Telegram Stars. */
+        /** Integer | The number of seconds the subscription will be active for before the next payment. The currency must be set to "XTR" (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must not exceed 10000 Telegram Stars. */
         public let subscription_period: Int?
-        /** Integer | The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
+        /** Integer | The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars. */
         public let max_tip_amount: Int?
-        /** Array of Integer | A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount. */
+        /** Array of Integer | A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount. */
         public let suggested_tip_amounts: Array<Int>?
-        /** String | JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider. */
+        /** String | JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider. */
         public let provider_data: String?
         /** String | URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. */
         public let photo_url: String?
@@ -19944,7 +19945,7 @@ extension TelegramAPI {
         public let ok: Bool
         /** Array of ShippingOption | Required if ok is True. A JSON-serialized Array of available shipping options. */
         public let shipping_options: Array<ShippingOption>?
-        /** String | Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable"). Telegram will display this message to the user. */
+        /** String | Required if ok is False. Error message in human-readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable"). Telegram will display this message to the user. */
         public let error_message: String?
         
         public init(shipping_query_id: String, ok: Bool, shipping_options: Array<ShippingOption>? = nil, error_message: String? = nil) {
@@ -19977,7 +19978,7 @@ extension TelegramAPI {
         public let pre_checkout_query_id: String
         /** Boolean | Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems. */
         public let ok: Bool
-        /** String | Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user. */
+        /** String | Required if ok is False. Error message in human-readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user. */
         public let error_message: String?
         
         public init(pre_checkout_query_id: String, ok: Bool, error_message: String? = nil) {
@@ -20127,7 +20128,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setpassportdataerrors
-     * Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
+     * Informs a user that some of the Telegram Passport elements they provided contain errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
      * Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.
      */
     public func setPassportDataErrors(params: SetPassportDataErrorsParams) async throws -> SetPassportDataErrorsResponse {
@@ -20225,7 +20226,7 @@ extension TelegramAPI {
 
     /**
      * https://core.telegram.org/bots/api#setgamescore
-     * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned, otherwise True is returned. Returns an error, if the new score is not greater than the user's current score in the chat and force is False.
+     * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned; otherwise, True is returned. Returns an error if the new score is not greater than the user's current score in the chat and force is False.
      */
     public func setGameScore(params: SetGameScoreParams) async throws -> SetGameScoreResponse {
         let data = try await request("setGameScore", params)

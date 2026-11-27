@@ -26,7 +26,7 @@
  * This object represents an incoming update.
  * At most one of the optional fields can be present in any given update.
  * @typedef {Object} Update
- * @property {number} update_id - The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then identifier of the next update will be chosen randomly instead of sequentially.
+ * @property {number} update_id - The update's unique identifier. Update identifiers start from a certain positive number and increase sequentially. This identifier becomes especially handy if you're using webhooks, since it allows you to ignore repeated updates or to restore the correct update sequence, should they get out of order. If there are no new updates for at least a week, then the identifier of the next update will be chosen randomly instead of sequentially.
  * @property {Message} [message] - Optional. New incoming message of any kind - text, photo, sticker, etc.
  * @property {Message} [edited_message] - Optional. New version of a message that is known to the bot and was edited. This update may at times be triggered by changes to message fields that are either unavailable or not actively used by your bot.
  * @property {Message} [channel_post] - Optional. New incoming channel post of any kind - text, photo, sticker, etc.
@@ -37,7 +37,7 @@
  * @property {BusinessMessagesDeleted} [deleted_business_messages] - Optional. Messages were deleted from a connected business account
  * @property {Message} [guest_message] - Optional. New guest message. The bot can use the field Message.guest_query_id and the method answerGuestQuery to send a message in response.
  * @property {MessageReactionUpdated} [message_reaction] - Optional. A reaction to a message was changed by a user. The bot must be an administrator in the chat and must explicitly specify "message_reaction" in the list of allowed_updates to receive these updates. The update isn't received for reactions set by bots.
- * @property {MessageReactionCountUpdated} [message_reaction_count] - Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates. The updates are grouped and can be sent with delay up to a few minutes.
+ * @property {MessageReactionCountUpdated} [message_reaction_count] - Optional. Reactions to a message with anonymous reactions were changed. The bot must be an administrator in the chat and must explicitly specify "message_reaction_count" in the list of allowed_updates to receive these updates. The updates are grouped and can be sent with a delay of up to a few minutes.
  * @property {InlineQuery} [inline_query] - Optional. New incoming inline query
  * @property {ChosenInlineResult} [chosen_inline_result] - Optional. The result of an inline query that was chosen by a user and sent to their chat partner. Please see our documentation on the feedback collecting for details on how to enable these updates for your bot. The updates can also be enabled using the parameter inline_feedback_share_denominator of the method setMySettings.
  * @property {CallbackQuery} [callback_query] - Optional. New incoming callback query
@@ -46,14 +46,14 @@
  * @property {ShippingQuery} [shipping_query] - Optional. New incoming shipping query. Only for invoices with flexible price.
  * @property {PreCheckoutQuery} [pre_checkout_query] - Optional. New incoming pre-checkout query. Contains full information about checkout.
  * @property {PaidMediaPurchased} [purchased_paid_media] - Optional. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat
- * @property {Poll} [poll] - Optional. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot.
+ * @property {Poll} [poll] - Optional. New poll state. Bots receive only updates about manually stopped polls and polls which are sent by the bot.
  * @property {PollAnswer} [poll_answer] - Optional. A user changed their answer in a non-anonymous poll. Bots receive new votes only in polls that were sent by the bot itself.
  * @property {ChatMemberUpdated} [my_chat_member] - Optional. The bot's chat member status was updated in a chat. For private chats, this update is received only when the bot is blocked or unblocked by the user.
  * @property {ChatMemberUpdated} [chat_member] - Optional. A chat member's status was updated in a chat. The bot must be an administrator in the chat and must explicitly specify "chat_member" in the list of allowed_updates to receive these updates.
  * @property {ChatJoinRequest} [chat_join_request] - Optional. A request to join the chat has been sent. The bot must have the can_invite_users administrator right in the chat to receive these updates.
  * @property {ChatBoostUpdated} [chat_boost] - Optional. A chat boost was added or changed. The bot must be an administrator in the chat to receive these updates.
  * @property {ChatBoostRemoved} [removed_chat_boost] - Optional. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates.
- * @property {ManagedBotUpdated} [managed_bot] - Optional. A new bot was created to be managed by the bot, or token or owner of a managed bot was changed
+ * @property {ManagedBotUpdated} [managed_bot] - Optional. A new bot was created to be managed by the bot, or the token or owner of a managed bot was changed
  * @property {BotSubscriptionUpdated} [subscription] - Optional. User payment subscription has changed
  * @property {MessageGenerationStopped} [stopped_message_generation] - Optional. A user asked the bot to stop the generation of a message
  */
@@ -77,7 +77,7 @@
  * https://core.telegram.org/bots/api#botfullinfo
  * This object contains full information about the bot itself.
  * @typedef {Object} BotFullInfo
- * @property {number} id - Unique identifier for this bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} id - Unique identifier for this bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {boolean} is_bot - Always True
  * @property {string} first_name - Bot's first name
  * @property {string} [username] - Optional. Bot's username
@@ -101,7 +101,7 @@
  * https://core.telegram.org/bots/api#user
  * This object represents a Telegram user or bot.
  * @typedef {Object} User
- * @property {number} id - Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} id - Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {boolean} is_bot - True, if this user is a bot
  * @property {string} first_name - User's or bot's first name
  * @property {string} [last_name] - Optional. User's or bot's last name
@@ -115,7 +115,7 @@
  * https://core.telegram.org/bots/api#chat
  * This object represents a chat.
  * @typedef {Object} Chat
- * @property {number} id - Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} id - Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {ChatType} type - Type of the chat, can be either "private", "group", "supergroup" or "channel"
  * @property {string} [title] - Optional. Title, for supergroups, channels and group chats
  * @property {string} [username] - Optional. Username, for private chats, supergroups and channels if available
@@ -129,7 +129,7 @@
  * https://core.telegram.org/bots/api#chatfullinfo
  * This object contains full information about a chat.
  * @typedef {Object} ChatFullInfo
- * @property {number} id - Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} id - Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {ChatType} type - Type of the chat, can be either "private", "group", "supergroup" or "channel"
  * @property {string} [title] - Optional. Title, for supergroups, channels and group chats
  * @property {string} [username] - Optional. Username, for private chats, supergroups and channels if available
@@ -154,7 +154,7 @@
  * @property {string} [emoji_status_custom_emoji_id] - Optional. Custom emoji identifier of the emoji status of the chat or the other party in a private chat
  * @property {number} [emoji_status_expiration_date] - Optional. Expiration date of the emoji status of the chat or the other party in a private chat, in Unix time, if any
  * @property {string} [bio] - Optional. Bio of the other party in a private chat
- * @property {boolean} [has_private_forwards] - Optional. True, if privacy settings of the other party in the private chat allows to use tg://user?id=<user_id> links only in chats with the user
+ * @property {boolean} [has_private_forwards] - Optional. True, if the privacy settings of the other party in the private chat allow using tg://user?id=<user_id> links only in chats with the user
  * @property {boolean} [has_restricted_voice_and_video_messages] - Optional. True, if the privacy settings of the other party restrict sending voice and video note messages in the private chat
  * @property {boolean} [join_to_send_messages] - Optional. True, if users need to join the supergroup before they can send messages
  * @property {boolean} [join_by_request] - Optional. True, if all users directly joining the supergroup without using an invite link need to be approved by supergroup administrators
@@ -174,7 +174,7 @@
  * @property {string} [sticker_set_name] - Optional. For supergroups, name of the group sticker set
  * @property {boolean} [can_set_sticker_set] - Optional. True, if the bot can change the group sticker set
  * @property {string} [custom_emoji_sticker_set_name] - Optional. For supergroups, the name of the group's custom emoji sticker set. Custom emoji from this set can be used by all users and bots in the group.
- * @property {number} [linked_chat_id] - Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} [linked_chat_id] - Optional. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {ChatLocation} [location] - Optional. For supergroups, the location to which the supergroup is connected
  * @property {UserRating} [rating] - Optional. For private chats, the rating of the user if any
  * @property {Audio} [first_profile_audio] - Optional. For private chats, the first audio added to the profile of the user
@@ -257,14 +257,14 @@
  * @property {ChatOwnerLeft} [chat_owner_left] - Optional. Service message: chat owner has left
  * @property {ChatOwnerChanged} [chat_owner_changed] - Optional. Service message: chat owner has changed
  * @property {string} [new_chat_title] - Optional. A chat title was changed to this value
- * @property {Array<PhotoSize>} [new_chat_photo] - Optional. A chat photo was change to this value
+ * @property {Array<PhotoSize>} [new_chat_photo] - Optional. A chat photo was changed to this value
  * @property {boolean} [delete_chat_photo] - Optional. Service message: the chat photo was deleted
  * @property {boolean} [group_chat_created] - Optional. Service message: the group has been created
- * @property {boolean} [supergroup_chat_created] - Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to a very first message in a directly created supergroup.
- * @property {boolean} [channel_chat_created] - Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to a very first message in a channel.
+ * @property {boolean} [supergroup_chat_created] - Optional. Service message: the supergroup has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a supergroup when it is created. It can only be found in reply_to_message if someone replies to the very first message in a directly created supergroup.
+ * @property {boolean} [channel_chat_created] - Optional. Service message: the channel has been created. This field can't be received in a message coming through updates, because a bot can't be a member of a channel when it is created. It can only be found in reply_to_message if someone replies to the very first message in a channel.
  * @property {MessageAutoDeleteTimerChanged} [message_auto_delete_timer_changed] - Optional. Service message: auto-delete timer settings changed in the chat
- * @property {number} [migrate_to_chat_id] - Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
- * @property {number} [migrate_from_chat_id] - Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} [migrate_to_chat_id] - Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
+ * @property {number} [migrate_from_chat_id] - Optional. The supergroup has been migrated from a group with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {MaybeInaccessibleMessage} [pinned_message] - Optional. Specified message was pinned. Note that the Message object in this field will not contain further reply_to_message fields even if it itself is a reply.
  * @property {Invoice} [invoice] - Optional. Message is an invoice for a payment, information about the invoice. More about payments: https://core.telegram.org/bots/api#payments
  * @property {SuccessfulPayment} [successful_payment] - Optional. Message is a service message about a successful payment, information about the payment. More about payments: https://core.telegram.org/bots/api#payments
@@ -319,7 +319,7 @@
  * https://core.telegram.org/bots/api#messageid
  * This object represents a unique message identifier.
  * @typedef {Object} MessageId
- * @property {number} message_id - Unique message identifier. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent.
+ * @property {number} message_id - Unique message identifier. In specific instances (e.g., a message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent.
  */
 
 /**
@@ -346,7 +346,7 @@
  * @property {MessageEntityType} type - Type of the entity. Currently, can be "mention" (@username), "hashtag" (#hashtag or #hashtag@chatusername), "cashtag" ($USD or $USD@chatusername), "bot_command" (/start@jobs_bot), "url" (https://telegram.org), "email" (do-not-reply@telegram.org), "phone_number" (+1-212-555-0123), "bank_card_number" (bank card number), "ton_address" (address in the TON blockchain), "bold" (bold text), "italic" (italic text), "underline" (underlined text), "strikethrough" (strikethrough text), "spoiler" (spoiler message), "blockquote" (block quotation), "expandable_blockquote" (collapsed-by-default block quotation), "code" (monowidth string), "pre" (monowidth block), "text_link" (for clickable text URLs), "text_mention" (for users without usernames), "custom_emoji" (for inline custom emoji stickers), or "date_time" (for formatted date and time).
  * @property {number} offset - Offset in UTF-16 code units to the start of the entity
  * @property {number} length - Length of the entity in UTF-16 code units
- * @property {string} [url] - Optional. For "text_link" only, URL that will be opened after user taps on the text
+ * @property {string} [url] - Optional. For "text_link" only, URL that will be opened after the user taps on the text
  * @property {User} [user] - Optional. For "text_mention" only, the mentioned user
  * @property {string} [language] - Optional. For "pre" only, the programming language of the entity text
  * @property {string} [custom_emoji_id] - Optional. For "custom_emoji" only, unique identifier of the custom emoji. Use getCustomEmojiStickers to get full information about the sticker.
@@ -409,7 +409,7 @@
  * @property {string} [quote] - Optional. Quoted part of the message to be replied to; 0-1024 characters after entities parsing. The quote must be an exact substring of the message to be replied to, including bold, italic, underline, strikethrough, spoiler, custom_emoji, and date_time entities. The message will fail to send if the quote isn't found in the original message. Ignored for ephemeral messages.
  * @property {string} [quote_parse_mode] - Optional. Mode for parsing entities in the quote. See formatting options for more details.
  * @property {Array<MessageEntity>} [quote_entities] - Optional. A JSON-serialized list of special entities that appear in the quote. It can be specified instead of quote_parse_mode.
- * @property {Array<RichText>} [quote_rich_texts] - Optional. A JSON-serialized list of quoted parts of the rich message to be replied to. Must contain one element for each quoted text of the message in the order of their appearance. Each of the following is a separate quoted text: the text of a paragraph, a heading, a preformatted block, a footer, or a mathematical expression; the text and the credit of a block quotation or a pull quotation; the summary of a details block; the caption and each cell of a table; the text and the credit of a caption of a media block, a collage, a slideshow, or a map. Texts of blocks nested in lists, block quotations, details, collages, and slideshows are separate quoted texts too. The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept, and rich texts must be nested in the same way as in the message received from the server. Mathematical expressions must be quoted entirely. Buttons in RichBlockButtons, anchors and dividers can't be quoted. Up to 32 quoted texts with total length up to 1024 characters can be specified. Only plain text, RichTextBold, RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler, RichTextSubscript, RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji, RichTextMathematicalExpression, and arrays of them are kept in the quote; other rich text types are replaced with their text. If non-empty, then quote, quote_parse_mode and quote_entities are ignored.
+ * @property {Array<RichText>} [quote_rich_texts] - Optional. A JSON-serialized list of quoted parts of the rich message to be replied to. Must contain one element for each quoted text of the message in the order of their appearance. Each of the following is a separate quoted text: the text of a paragraph, a heading, a preformatted block, a footer, or a mathematical expression; the text and the credit of a block quotation or a pull quotation; the summary of a details block; the caption and each cell of a table; the text and the credit of a caption of a media block, a collage, a slideshow, or a map. Texts of blocks nested in lists, block quotations, details, collages, and slideshows are separate quoted texts too. The first and the last elements can contain only a part of the corresponding text; all other elements must contain the whole text. Formatting of the quoted parts must be kept, and rich texts must be nested in the same way as in the message received from the server. Mathematical expressions must be quoted entirely. Buttons in RichBlockButtons, anchors and dividers can't be quoted. Up to 32 quoted texts with a total length of up to 1024 characters can be specified. Only plain text, RichTextBold, RichTextItalic, RichTextUnderline, RichTextStrikethrough, RichTextSpoiler, RichTextSubscript, RichTextSuperscript, RichTextDateTime, RichTextCustomEmoji, RichTextMathematicalExpression, and arrays of them are kept in the quote; other rich text types are replaced with their text. If non-empty, then quote, quote_parse_mode and quote_entities are ignored.
  * @property {number} [quote_position] - Optional. Position of the quote in the original message in UTF-16 code units. For quotes from rich messages, it is the position in the text formed by joining plain texts of all quotable texts of the message, separated by line feeds.
  * @property {number} [checklist_task_id] - Optional. Identifier of the specific checklist task to be replied to
  * @property {string} [poll_option_id] - Optional. Persistent identifier of the specific poll option to be replied to
@@ -417,6 +417,7 @@
 
 /**
  * https://core.telegram.org/bots/api#ephemeralmessageparameters
+ * Describes the parameters of an ephemeral message to be sent.
  * @typedef {Object} EphemeralMessageParameters
  * @property {number} [receiver_user_id] - Optional. Identifier of the user who will receive the message; required unless the message is sent as an ephemeral reply to a callback query. If omitted, then the parameter chat_id of the method is ignored. If specified together with callback_query_id, then it must be the identifier of the user who pressed the button. Must be omitted for messages sent in chats where the bot isn't a member, unless the message is a reply to an ephemeral message. It is not guaranteed that the user will receive the message, especially if they are offline. See here for more details.
  * @property {string} [callback_query_id] - Optional. Identifier of the callback query which triggered the message, if any. If specified and receiver_user_id is omitted, then the message is sent as an ephemeral reply to the callback query and will be shown only to the user who pressed the button. Ephemeral replies can't be sent to callback queries from messages in channel direct messages chats. The bot must still answer the callback query using answerCallbackQuery.
@@ -495,7 +496,7 @@
  * @property {PhotoSize} [thumbnail] - Optional. Animation thumbnail as defined by the sender
  * @property {string} [file_name] - Optional. Original animation filename as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -509,7 +510,7 @@
  * @property {string} [title] - Optional. Title of the audio as defined by the sender or by audio tags
  * @property {string} [file_name] - Optional. Original filename as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  * @property {PhotoSize} [thumbnail] - Optional. Thumbnail of the album cover to which the music file belongs
  */
 
@@ -522,7 +523,7 @@
  * @property {PhotoSize} [thumbnail] - Optional. Document thumbnail as defined by the sender
  * @property {string} [file_name] - Optional. Original filename as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -530,13 +531,13 @@
  * This object represents a live photo.
  * @typedef {Object} LivePhoto
  * @property {Array<PhotoSize>} [photo] - Optional. Available sizes of the corresponding static photo
- * @property {string} file_id - Identifier for the video file which can be used to download or reuse the file
- * @property {string} file_unique_id - Unique identifier for the video file which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+ * @property {string} file_id - Identifier for the video file, which can be used to download or reuse the file
+ * @property {string} file_unique_id - Unique identifier for the video file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
  * @property {number} width - Video width as defined by the sender
  * @property {number} height - Video height as defined by the sender
  * @property {number} duration - Duration of the video in seconds as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -556,7 +557,7 @@
  * @property {number} width - Video width
  * @property {number} height - Video height
  * @property {string} codec - Codec that was used to encode the video, for example, "h264", "h265", or "av01"
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -574,7 +575,7 @@
  * @property {Array<VideoQuality>} [qualities] - Optional. List of available qualities of the video
  * @property {string} [file_name] - Optional. Original filename as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -597,7 +598,7 @@
  * @property {string} file_unique_id - Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
  * @property {number} duration - Duration of the audio in seconds as defined by the sender
  * @property {string} [mime_type] - Optional. MIME type of the file as defined by the sender
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  */
 
 /**
@@ -671,7 +672,7 @@
  * @property {string} phone_number - Contact's phone number
  * @property {string} first_name - Contact's first name
  * @property {string} [last_name] - Optional. Contact's last name
- * @property {number} [user_id] - Optional. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} [user_id] - Optional. Contact's user identifier in Telegram. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {string} [vcard] - Optional. Additional data about the contact in the form of a vCard
  */
 
@@ -782,8 +783,8 @@
  * @property {boolean} is_anonymous - True, if the poll is anonymous
  * @property {string} type - Poll type, currently can be "regular" or "quiz"
  * @property {boolean} allows_multiple_answers - True, if the poll allows multiple answers
- * @property {boolean} allows_revoting - True, if the poll allows to change the chosen answer options
- * @property {boolean} members_only - True if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours
+ * @property {boolean} allows_revoting - True, if the poll allows changing the chosen answer options
+ * @property {boolean} members_only - True, if voting is limited to users who have been members of the chat where the poll was originally sent for more than 24 hours
  * @property {Array<string>} [country_codes] - Optional. A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which users can vote in the poll. The country code "FT" is used for users with anonymous numbers. If omitted, then users from any country can participate in the poll.
  * @property {Array<number>} [correct_option_ids] - Optional. Array of 0-based identifiers of the correct answer options. Available only for polls in quiz mode which are closed or were sent (not forwarded) by the bot or to the private chat with the bot.
  * @property {string} [explanation] - Optional. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters
@@ -849,7 +850,7 @@
  * @property {number} longitude - Longitude as defined by the sender
  * @property {number} [horizontal_accuracy] - Optional. The radius of uncertainty for the location, measured in meters; 0-1500
  * @property {number} [live_period] - Optional. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only.
- * @property {number} [heading] - Optional. The direction in which user is moving, in degrees; 1-360. For active live locations only.
+ * @property {number} [heading] - Optional. The direction in which the user is moving, in degrees; 1-360. For active live locations only.
  * @property {number} [proximity_alert_radius] - Optional. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.
  */
 
@@ -902,7 +903,7 @@
  * This object contains information about the creation, token update, or owner update of a bot that is managed by the current bot.
  * @typedef {Object} ManagedBotUpdated
  * @property {User} user - User that created the bot
- * @property {User} bot - Information about the bot. Token of the bot can be fetched using the method getManagedBotToken.
+ * @property {User} bot - Information about the bot. The token of the bot can be fetched using the method getManagedBotToken.
  */
 
 /**
@@ -1111,13 +1112,13 @@
 
 /**
  * https://core.telegram.org/bots/api#generalforumtopichidden
- * This object represents a service message about General forum topic hidden in the chat. Currently holds no information.
+ * This object represents a service message about the General forum topic hidden in the chat. Currently holds no information.
  * @typedef {Object} GeneralForumTopicHidden
  */
 
 /**
  * https://core.telegram.org/bots/api#generalforumtopicunhidden
- * This object represents a service message about General forum topic unhidden in the chat. Currently holds no information.
+ * This object represents a service message about the General forum topic unhidden in the chat. Currently holds no information.
  * @typedef {Object} GeneralForumTopicUnhidden
  */
 
@@ -1145,7 +1146,7 @@
  * This object contains information about a chat that was shared with the bot using a KeyboardButtonRequestChat button.
  * @typedef {Object} ChatShared
  * @property {number} request_id - Identifier of the request
- * @property {number} chat_id - Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means.
+ * @property {number} chat_id - Identifier of the shared chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. The bot may not have access to the chat and could be unable to use this identifier, unless the chat is already known to the bot by some other means.
  * @property {string} [title] - Optional. Title of the chat, if the title was requested by the bot
  * @property {string} [username] - Optional. Username of the chat, if the username was requested by the bot and available
  * @property {Array<PhotoSize>} [photo] - Optional. Available sizes of the chat photo, if the photo was requested by the bot
@@ -1275,10 +1276,10 @@
  * @typedef {Object} Giveaway
  * @property {Array<Chat>} chats - The list of chats which the user must join to participate in the giveaway
  * @property {number} winners_selection_date - Point in time (Unix timestamp) when winners of the giveaway will be selected
- * @property {number} winner_count - The number of users which are supposed to be selected as winners of the giveaway
+ * @property {number} winner_count - The number of users who are supposed to be selected as winners of the giveaway
  * @property {boolean} [only_new_members] - Optional. True, if only users who join the chats after the giveaway started should be eligible to win
  * @property {boolean} [has_public_winners] - Optional. True, if the list of giveaway winners will be visible to everyone
- * @property {string} [prize_description] - Optional. Description of additional giveaway prize
+ * @property {string} [prize_description] - Optional. Description of an additional giveaway prize
  * @property {Array<string>} [country_codes] - Optional. A list of two-letter ISO 3166-1 alpha-2 country codes indicating the countries from which eligible users for the giveaway must come. If empty, then all users can participate in the giveaway. Users with a phone number that was bought on Fragment can always participate in giveaways.
  * @property {number} [prize_star_count] - Optional. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only
  * @property {number} [premium_subscription_month_count] - Optional. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only
@@ -1299,7 +1300,7 @@
  * @property {number} [unclaimed_prize_count] - Optional. Number of undistributed prizes
  * @property {boolean} [only_new_members] - Optional. True, if only users who had joined the chats after the giveaway started were eligible to win
  * @property {boolean} [was_refunded] - Optional. True, if the giveaway was canceled because the payment for it was refunded
- * @property {string} [prize_description] - Optional. Description of additional giveaway prize
+ * @property {string} [prize_description] - Optional. Description of an additional giveaway prize
  */
 
 /**
@@ -1345,20 +1346,20 @@
  * Contains parameters of a post that is being suggested by the bot.
  * @typedef {Object} SuggestedPostParameters
  * @property {SuggestedPostPrice} [price] - Optional. Proposed price for the post. If the field is omitted, then the post is unpaid.
- * @property {number} [send_date] - Optional. Proposed send date of the post. If specified, then the date must be between 300 second and 2678400 seconds (30 days) in the future. If the field is omitted, then the post can be published at any time within 30 days at the sole discretion of the user who approves it.
+ * @property {number} [send_date] - Optional. Proposed send date of the post. If specified, then the date must be between 300 seconds and 2678400 seconds (30 days) in the future. If the field is omitted, then the post can be published at any time within 30 days at the sole discretion of the user who approves it.
  */
 
 /**
  * https://core.telegram.org/bots/api#directmessagestopic
  * Describes a topic of a direct messages chat.
  * @typedef {Object} DirectMessagesTopic
- * @property {number} topic_id - Unique identifier of the topic. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} topic_id - Unique identifier of the topic. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {User} [user] - Optional. Information about the user that created the topic. Currently, it is always present.
  */
 
 /**
  * https://core.telegram.org/bots/api#userprofilephotos
- * This object represent a user's profile pictures.
+ * This object represents a user's profile pictures.
  * @typedef {Object} UserProfilePhotos
  * @property {number} total_count - Total number of profile pictures the target user has
  * @property {Array<Array<PhotoSize>>} photos - Requested profile pictures (in up to 4 sizes each)
@@ -1378,7 +1379,7 @@
  * @typedef {Object} File
  * @property {string} file_id - Identifier for this file, which can be used to download or reuse the file
  * @property {string} file_unique_id - Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
- * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+ * @property {number} [file_size] - Optional. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this value.
  * @property {string} [file_path] - Optional. File path. Use https://api.telegram.org/file/bot<token>/<file_path> to get the file.
  */
 
@@ -1398,7 +1399,7 @@
  * @property {boolean} [resize_keyboard] - Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to False, in which case the custom keyboard is always of the same height as the app's standard keyboard.
  * @property {boolean} [one_time_keyboard] - Optional. Requests clients to hide the keyboard as soon as it's been used. The keyboard will still be available, but clients will automatically display the usual letter-keyboard in the chat - the user can press a special button in the input field to see the custom keyboard again. Defaults to False.
  * @property {string} [input_field_placeholder] - Optional. The placeholder to be shown in the input field when the keyboard is active; 1-64 characters
- * @property {boolean} [selective] - Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.
+ * @property {boolean} [selective] - Optional. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user requests to change the bot's language, and the bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.
  * @property {boolean} [force_reply] - Optional. Pass True if the reply interface must be shown to the user, as if they had manually selected the bot's message and tapped 'Reply'
  */
 
@@ -1433,7 +1434,7 @@
 
 /**
  * https://core.telegram.org/bots/api#keyboardbuttonrequestchat
- * This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted requested rights in the chat if appropriate. More about requesting chats: https://core.telegram.org/bots/features#chat-and-user-selection.
+ * This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted the requested rights in the chat if appropriate. More about requesting chats: https://core.telegram.org/bots/features#chat-and-user-selection.
  * @typedef {Object} KeyboardButtonRequestChat
  * @property {number} request_id - Signed 32-bit identifier of the request, which will be received back in the ChatShared object. Must be unique within the message.
  * @property {boolean} chat_is_channel - Pass True to request a channel chat, pass False to request a group or a supergroup chat
@@ -1459,7 +1460,7 @@
 
 /**
  * https://core.telegram.org/bots/api#keyboardbuttonpolltype
- * This object represents type of a poll, which is allowed to be created and sent when the corresponding button is pressed.
+ * This object represents the type of a poll, which is allowed to be created and sent when the corresponding button is pressed.
  * @typedef {Object} KeyboardButtonPollType
  * @property {string} [type] - Optional. If quiz is passed, the user will be allowed to create only polls in the quiz mode. If regular is passed, only regular polls will be allowed. Otherwise, the user will be allowed to create a poll of any type.
  */
@@ -1468,8 +1469,8 @@
  * https://core.telegram.org/bots/api#replykeyboardremove
  * Upon receiving a message with this object, Telegram clients will remove the current custom keyboard and display the default letter-keyboard. By default, custom keyboards are displayed until a new keyboard is sent by a bot. An exception is made for one-time keyboards that are hidden immediately after the user presses a button (see ReplyKeyboardMarkup). Not supported in channels and for messages sent on behalf of a business account.
  * @typedef {Object} ReplyKeyboardRemove
- * @property {boolean} remove_keyboard - Requests clients to remove the custom keyboard (user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)
- * @property {boolean} [selective] - Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user votes in a poll, bot returns confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.
+ * @property {boolean} remove_keyboard - Requests clients to remove the custom keyboard (the user will not be able to summon this keyboard; if you want to hide the keyboard from sight but keep it accessible, use one_time_keyboard in ReplyKeyboardMarkup)
+ * @property {boolean} [selective] - Optional. Use this parameter if you want to remove the keyboard for specific users only. Targets: 1) users that are @mentioned in the text of the Message object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message. Example: A user votes in a poll, and the bot returns a confirmation message in reply to the vote and removes the keyboard for that user, while still showing the keyboard with poll options to users who haven't voted yet.
  */
 
 /**
@@ -1496,7 +1497,7 @@
  * @property {SwitchInlineQueryChosenChat} [switch_inline_query_chosen_chat] - Optional. If set, pressing the button will prompt the user to select one of their chats of the specified type, open that chat and insert the bot's username and the specified inline query in the input field. Not supported for messages sent in channel direct messages chats and on behalf of a business account.
  * @property {CopyTextButton} [copy_text] - Optional. Description of the button that copies the specified text to the clipboard
  * @property {CallbackGame} [callback_game] - Optional. Description of the game that will be launched when the user presses the button. NOTE: This type of button must always be the first button in the first row.
- * @property {boolean} [pay] - Optional. Specify True, to send a Pay button. Substrings "⭐" and "XTR" in the buttons's text will be replaced with a Telegram Star icon. NOTE: This type of button must always be the first button in the first row and can only be used in invoice messages.
+ * @property {boolean} [pay] - Optional. Specify True to send a Pay button. Substrings "⭐" and "XTR" in the button's text will be replaced with a Telegram Star icon. NOTE: This type of button must always be the first button in the first row and can only be used in invoice messages.
  * @property {DisabledButton} [disabled] - Optional. If set, then the button is disabled and does nothing
  */
 
@@ -1543,7 +1544,7 @@
  * @property {MaybeInaccessibleMessage} [message] - Optional. Message sent by the bot with the callback button that originated the query
  * @property {string} [inline_message_id] - Optional. Identifier of the message sent via the bot in inline mode, that originated the query. Can also be present for messages sent by the bot, depending on the parameter callback_query_mode of the method setMySettings.
  * @property {string} chat_instance - Global identifier, uniquely corresponding to the chat to which the message with the callback button was sent. Useful for high scores in games.
- * @property {string} [data] - Optional. Data associated with the callback button. Be aware that the message originated the query can contain no callback buttons with this data.
+ * @property {string} [data] - Optional. Data associated with the callback button. Be aware that the message that originated the query can contain no callback buttons with this data.
  * @property {string} [game_short_name] - Optional. Short name of a Game to be returned, serves as the unique identifier for the game
  */
 
@@ -1621,7 +1622,7 @@
 
 /**
  * https://core.telegram.org/bots/api#forcereply
- * Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. Not supported in channels and for messages sent on behalf of a user account.
+ * Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice privacy mode. Not supported in channels and for messages sent on behalf of a business account.
  * @typedef {Object} ForceReply
  * @property {boolean} force_reply - Shows reply interface to the user, as if they had manually selected the bot's message and tapped 'Reply'
  * @property {string} [input_field_placeholder] - Optional. The placeholder to be shown in the input field when the reply is active; 1-64 characters
@@ -1632,7 +1633,7 @@
  * https://core.telegram.org/bots/api#community
  * Represents a community (a group of chats).
  * @typedef {Object} Community
- * @property {number} id - Unique identifier for this community. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} id - Unique identifier for this community. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {string} name - Name of the community
  */
 
@@ -1656,7 +1657,7 @@
  * @property {boolean} is_primary - True, if the link is primary
  * @property {boolean} is_revoked - True, if the link is revoked
  * @property {string} [name] - Optional. Invite link name
- * @property {number} [expire_date] - Optional. Point in time (Unix timestamp) when the link will expire or has been expired
+ * @property {number} [expire_date] - Optional. Point in time (Unix timestamp) when the link will expire or has expired
  * @property {number} [member_limit] - Optional. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
  * @property {number} [pending_join_request_count] - Optional. Number of pending join requests created using this link
  * @property {number} [subscription_period] - Optional. The number of seconds the subscription will be active for before the next payment
@@ -1811,7 +1812,7 @@
  * @typedef {Object} ChatJoinRequest
  * @property {Chat} chat - Chat to which the request was sent
  * @property {User} from - User that sent the join request
- * @property {number} user_chat_id - Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier. The bot can use this identifier for 5 minutes to send messages until the join request is processed, assuming no other administrator contacted the user.
+ * @property {number} user_chat_id - Identifier of a private chat with the user who sent the join request. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier. The bot can use this identifier for 5 minutes to send messages until the join request is processed, assuming no other administrator contacted the user.
  * @property {number} date - Date the request was sent in Unix time
  * @property {string} [bio] - Optional. Bio of the user
  * @property {ChatInviteLink} [invite_link] - Optional. Chat invite link that was used by the user to send the join request
@@ -1884,9 +1885,9 @@
 
 /**
  * https://core.telegram.org/bots/api#userrating
- * This object describes the rating of a user based on their Telegram Star spendings.
+ * This object describes the rating of a user based on their Telegram Star spending.
  * @typedef {Object} UserRating
- * @property {number} level - Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely reason for concern.
+ * @property {number} level - Current level of the user, indicating their reliability when purchasing digital goods and services. A higher level suggests a more trustworthy customer; a negative level is likely a reason for concern.
  * @property {number} rating - Numerical value of the user's rating; the higher the rating, the better
  * @property {number} current_level_rating - The rating value required to get the current level
  * @property {number} [next_level_rating] - Optional. The rating value required to get to the next level; omitted if the maximum level was reached
@@ -2046,7 +2047,7 @@
  * @property {'suggested_reaction'} type - Type of the area, always "suggested_reaction"
  * @property {ReactionType} reaction_type - Type of the reaction
  * @property {boolean} [is_dark] - Optional. Pass True if the reaction area has a dark background
- * @property {boolean} [is_flipped] - Optional. Pass True if reaction area corner is flipped
+ * @property {boolean} [is_flipped] - Optional. Pass True if the reaction area corner is flipped
  */
 
 /**
@@ -2062,7 +2063,7 @@
  * Describes a story area containing weather information. Currently, a story can have up to 3 weather areas.
  * @typedef {Object} StoryAreaTypeWeather
  * @property {'weather'} type - Type of the area, always "weather"
- * @property {number} temperature - Temperature, in degree Celsius
+ * @property {number} temperature - Temperature, in degrees Celsius
  * @property {string} emoji - Emoji representing the weather
  * @property {number} background_color - A color of the area background in the ARGB format
  */
@@ -2195,7 +2196,7 @@
 
 /**
  * https://core.telegram.org/bots/api#gifts
- * This object represent a list of gifts.
+ * This object represents a list of gifts.
  * @typedef {Object} Gifts
  * @property {Array<Gift>} gifts - The list of gifts
  */
@@ -2216,7 +2217,7 @@
  * @typedef {Object} UniqueGiftSymbol
  * @property {string} name - Name of the symbol
  * @property {Sticker} sticker - The sticker that represents the unique gift
- * @property {number} rarity_per_mille - The number of unique gifts that receive this model for every 1000 gifts upgraded
+ * @property {number} rarity_per_mille - The number of unique gifts that receive this symbol for every 1000 gifts upgraded
  */
 
 /**
@@ -2261,7 +2262,7 @@
  * @property {UniqueGiftModel} model - Model of the gift
  * @property {UniqueGiftSymbol} symbol - Symbol of the gift
  * @property {UniqueGiftBackdrop} backdrop - Backdrop of the gift
- * @property {boolean} [is_premium] - Optional. True, if the original regular gift was exclusively purchaseable by Telegram Premium subscribers
+ * @property {boolean} [is_premium] - Optional. True, if the original regular gift was exclusively purchasable by Telegram Premium subscribers
  * @property {boolean} [is_burned] - Optional. True, if the gift was used to craft another gift and isn't available anymore
  * @property {boolean} [is_from_blockchain] - Optional. True, if the gift is assigned from the TON blockchain and can't be resold or transferred in Telegram
  * @property {UniqueGiftColors} [colors] - Optional. The color scheme that can be used by the gift's owner for the chat's name, replies to messages and link previews; for business account gifts and gifts that are currently on sale only
@@ -2531,7 +2532,7 @@
  * The boost was obtained by the creation of Telegram Premium gift codes to boost a chat. Each such code boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription.
  * @typedef {Object} ChatBoostSourceGiftCode
  * @property {'gift_code'} source - Source of the boost, always "gift_code"
- * @property {User} user - User for which the gift code was created
+ * @property {User} user - User for whom the gift code was created
  */
 
 /**
@@ -2620,7 +2621,7 @@
  * @typedef {Object} BusinessConnection
  * @property {string} id - Unique identifier of the business connection
  * @property {User} user - Business account user that created the business connection
- * @property {number} user_chat_id - Identifier of a private chat with the user who created the business connection. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} user_chat_id - Identifier of a private chat with the user who created the business connection. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {number} date - Date the connection was established in Unix time
  * @property {BusinessBotRights} [rights] - Optional. Rights of the business bot
  * @property {boolean} is_enabled - True, if the connection is active
@@ -2668,7 +2669,7 @@
  * https://core.telegram.org/bots/api#responseparameters
  * Describes why a request was unsuccessful.
  * @typedef {Object} ResponseParameters
- * @property {number} [migrate_to_chat_id] - Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+ * @property {number} [migrate_to_chat_id] - Optional. The group has been migrated to a supergroup with the specified identifier. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type is safe for storing this identifier.
  * @property {number} [retry_after] - Optional. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated
  */
 
@@ -2690,7 +2691,7 @@
  * @typedef {Object} InputMediaAnimation
  * @property {string} type - Type of the media, must be animation
  * @property {string} media - File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [caption] - Optional. Caption of the animation to be sent, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Optional. Mode for parsing entities in the animation caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - Optional. List of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -2707,7 +2708,7 @@
  * @typedef {Object} InputMediaAudio
  * @property {string} type - Type of the media, must be audio
  * @property {string} media - File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [caption] - Optional. Caption of the audio to be sent, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Optional. Mode for parsing entities in the audio caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - Optional. List of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -2722,7 +2723,7 @@
  * @typedef {Object} InputMediaDocument
  * @property {string} type - Type of the media, must be document
  * @property {string} media - File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [caption] - Optional. Caption of the document to be sent, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Optional. Mode for parsing entities in the document caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - Optional. List of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -2804,7 +2805,7 @@
  * @typedef {Object} InputMediaVideo
  * @property {string} type - Type of the media, must be video
  * @property {string} media - File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [cover] - Optional. Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {number} [start_timestamp] - Optional. Start timestamp for the video in the message
  * @property {string} [caption] - Optional. Caption of the video to be sent, 0-1024 characters after entities parsing
@@ -2868,7 +2869,7 @@
  * @typedef {Object} InputPaidMediaVideo
  * @property {string} type - Type of the media, must be video
  * @property {string} media - File to send. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [thumbnail] - Optional. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [cover] - Optional. Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {number} [start_timestamp] - Optional. Start timestamp for the video in the message
  * @property {number} [width] - Optional. Video width
@@ -2966,7 +2967,7 @@
  * This object describes the position on faces where a mask should be placed by default.
  * @typedef {Object} MaskPosition
  * @property {string} point - The part of the face relative to which the mask should be placed. One of "forehead", "eyes", "mouth", or "chin".
- * @property {number} x_shift - Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place mask just to the left of the default mask position.
+ * @property {number} x_shift - Shift by X-axis measured in widths of the mask scaled to the face size, from left to right. For example, choosing -1.0 will place the mask just to the left of the default mask position.
  * @property {number} y_shift - Shift by Y-axis measured in heights of the mask scaled to the face size, from top to bottom. For example, 1.0 will place the mask just below the default mask position.
  * @property {number} scale - Mask scaling coefficient. For example, 2.0 means double size.
  */
@@ -2979,7 +2980,7 @@
  * @property {string} format - Format of the added sticker, must be one of "static" for a .WEBP or .PNG image, "animated" for a .TGS animation, "video" for a .WEBM video
  * @property {Array<string>} emoji_list - List of 1-20 emoji associated with the sticker
  * @property {MaskPosition} [mask_position] - Optional. Position where the mask should be placed on faces. For "mask" stickers only.
- * @property {Array<string>} [keywords] - Optional. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For "regular" and "custom_emoji" stickers only.
+ * @property {Array<string>} [keywords] - Optional. List of 0-20 search keywords for the sticker with a total length of up to 64 characters. For "regular" and "custom_emoji" stickers only.
  */
 
 /**
@@ -2995,8 +2996,8 @@
  * Describes a rich message to be sent. Exactly one of the fields html, markdown, or blocks must be used.
  * @typedef {Object} InputRichMessage
  * @property {Array<InputRichBlock>} [blocks] - Optional. Content of the rich message to send described as a list of blocks
- * @property {string} [html] - Optional. Content of the rich message to send described using HTML formatting. See rich message formatting options for more details. Use media field to specify the media used in the message.
- * @property {string} [markdown] - Optional. Content of the rich message to send described using Markdown formatting. See rich message formatting options for more details. Use media field to specify the media used in the message.
+ * @property {string} [html] - Optional. Content of the rich message to send described using HTML formatting. See rich message formatting options for more details. Use the media field to specify the media used in the message.
+ * @property {string} [markdown] - Optional. Content of the rich message to send described using Markdown formatting. See rich message formatting options for more details. Use the media field to specify the media used in the message.
  * @property {Array<InputRichMessageMedia>} [media] - Optional. List of media that are specified in the markdown or html fields using tg://photo?id=, tg://video?id=, tg://document?id=, and tg://audio?id= links
  * @property {boolean} [is_rtl] - Optional. Pass True if the rich message must be shown right-to-left
  * @property {boolean} [skip_entity_detection] - Optional. Pass True to skip automatic detection of entities (e.g., URLs, email addresses, username mentions, hashtags, cashtags, bot commands, or phone numbers) in the text
@@ -3271,7 +3272,7 @@
  * @typedef {Object} RichTextAnchorLink
  * @property {'anchor_link'} type - Type of the rich text, always "anchor_link"
  * @property {RichText} text - The link text
- * @property {string} anchor_name - The name of the anchor. If the name is empty, then the link brings back to the top of the message.
+ * @property {string} anchor_name - The name of the anchor. If the name is empty, then the link brings the user back to the top of the message.
  */
 
 /**
@@ -3430,7 +3431,7 @@
 
 /**
  * https://core.telegram.org/bots/api#richblockexpandableblockquotation
- * A block quotation, corresponding to the HTML tag <blockquote> with custom attribute "expandable".
+ * A block quotation, corresponding to the HTML tag <blockquote> with the custom attribute "expandable".
  * @typedef {Object} RichBlockExpandableBlockQuotation
  * @property {'expandable_blockquote'} type - Type of the block, always "expandable_blockquote"
  * @property {Array<RichBlock>} blocks - Content of the block
@@ -3566,7 +3567,7 @@
 
 /**
  * https://core.telegram.org/bots/api#richblockthinking
- * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft, therefore it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
+ * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft; therefore, it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
  * @typedef {Object} RichBlockThinking
  * @property {'thinking'} type - Type of the block, always "thinking"
  * @property {RichText} text - Text of the block. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
@@ -3689,7 +3690,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inputrichblockexpandableblockquotation
- * A block quotation, corresponding to the HTML tag <blockquote> with custom attribute "expandable".
+ * A block quotation, corresponding to the HTML tag <blockquote> with the custom attribute "expandable".
  * @typedef {Object} InputRichBlockExpandableBlockQuotation
  * @property {'expandable_blockquote'} type - Type of the block, always "expandable_blockquote"
  * @property {Array<InputRichBlock>} blocks - Content of the block
@@ -3822,7 +3823,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inputrichblockthinking
- * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft, therefore it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
+ * A block with a "Thinking..." placeholder, corresponding to the custom HTML tag <tg-thinking>. The block may be used only in sendRichMessageDraft; therefore, it can't be received in messages. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
  * @typedef {Object} InputRichBlockThinking
  * @property {'thinking'} type - Type of the block, always "thinking"
  * @property {RichText} text - Text of the block. See https://t.me/addemoji/AIActions for examples of custom emoji that are recommended for usage in the block.
@@ -3836,7 +3837,7 @@
  * @property {User} from - Sender
  * @property {string} query - Text of the query (up to 256 characters)
  * @property {string} offset - Offset of the results to be returned, can be controlled by the bot
- * @property {InlineQueryChatType} [chat_type] - Optional. Type of the chat from which the inline query was sent. Can be either "sender" for a private chat with the inline query sender, "private", "group", "supergroup", or "channel". The chat type should be always known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat.
+ * @property {InlineQueryChatType} [chat_type] - Optional. Type of the chat from which the inline query was sent. Can be either "sender" for a private chat with the inline query sender, "private", "group", "supergroup", or "channel". The chat type should always be known for requests sent from official clients and most third-party clients, unless the request was sent from a secret chat.
  * @property {Location} [location] - Optional. Sender location, only for bots that enabled user location requests via @BotFather or using the parameter needs_inline_query_location of the method setMySettings
  */
 
@@ -3894,7 +3895,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inlinequeryresultphoto
- * Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.
+ * Represents a link to a photo. By default, this photo will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the photo.
  * @typedef {Object} InlineQueryResultPhoto
  * @property {string} type - Type of the result, must be photo
  * @property {string} id - Unique identifier for this result, 1-64 bytes
@@ -3914,7 +3915,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inlinequeryresultgif
- * Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
+ * Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
  * @typedef {Object} InlineQueryResultGif
  * @property {string} type - Type of the result, must be gif
  * @property {string} id - Unique identifier for this result, 1-64 bytes
@@ -3935,7 +3936,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inlinequeryresultmpeg4gif
- * Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
+ * Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
  * @typedef {Object} InlineQueryResultMpeg4Gif
  * @property {string} type - Type of the result, must be mpeg4_gif
  * @property {string} id - Unique identifier for this result, 1-64 bytes
@@ -3973,7 +3974,7 @@
  * @property {number} [video_duration] - Optional. Video duration in seconds
  * @property {string} [description] - Optional. Short description of the result
  * @property {InlineKeyboardMarkup} [reply_markup] - Optional. Inline keyboard attached to the message
- * @property {InputMessageContent} [input_message_content] - Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
+ * @property {InputMessageContent} [input_message_content] - Optional. Content of the message to be sent instead of the video. This field is required if InlineQueryResultVideo is used to send an HTML page as a result (e.g., a YouTube video).
  */
 
 /**
@@ -3995,7 +3996,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inlinequeryresultvoice
- * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the the voice message.
+ * Represents a link to a voice recording in an .OGG container encoded with OPUS. By default, this voice recording will be sent by the user. Alternatively, you can use input_message_content to send a message with the specified content instead of the voice message.
  * @typedef {Object} InlineQueryResultVoice
  * @property {string} type - Type of the result, must be voice
  * @property {string} id - Unique identifier for this result, 1-64 bytes
@@ -4116,7 +4117,7 @@
 
 /**
  * https://core.telegram.org/bots/api#inlinequeryresultcachedgif
- * Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with specified content instead of the animation.
+ * Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use input_message_content to send a message with the specified content instead of the animation.
  * @typedef {Object} InlineQueryResultCachedGif
  * @property {string} type - Type of the result, must be gif
  * @property {string} id - Unique identifier for this result, 1-64 bytes
@@ -4292,12 +4293,12 @@
  * @typedef {Object} InputInvoiceMessageContent
  * @property {string} title - Product name, 1-32 characters
  * @property {string} description - Product description, 1-255 characters
- * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.
+ * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes.
  * @property {string} [provider_token] - Optional. Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
  * @property {string} currency - Three-letter ISO 4217 currency code, see more on currencies. Pass "XTR" for payments in Telegram Stars.
  * @property {Array<LabeledPrice>} prices - Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars.
- * @property {number} [max_tip_amount] - Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
- * @property {Array<number>} [suggested_tip_amounts] - Optional. A JSON-serialized Array of suggested amounts of tip in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount.
+ * @property {number} [max_tip_amount] - Optional. The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
+ * @property {Array<number>} [suggested_tip_amounts] - Optional. A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount.
  * @property {string} [provider_data] - Optional. A JSON-serialized object for data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider.
  * @property {string} [photo_url] - Optional. URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service.
  * @property {number} [photo_size] - Optional. Photo size in bytes
@@ -4349,7 +4350,7 @@
  * @property {string} result_id - The unique identifier for the result that was chosen
  * @property {User} from - The user that chose the result
  * @property {Location} [location] - Optional. Sender location, only for bots that enabled user location requests via @BotFather or using the parameter needs_inline_query_location of the method setMySettings
- * @property {string} [inline_message_id] - Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will be also received in callback queries and can be used to edit the message.
+ * @property {string} [inline_message_id] - Optional. Identifier of the sent inline message. Available only if there is an inline keyboard attached to the message. Will also be received in callback queries and can be used to edit the message.
  * @property {string} query - The query that was used to obtain the result
  */
 
@@ -4358,7 +4359,7 @@
  * This object represents a portion of the price for goods or services.
  * @typedef {Object} LabeledPrice
  * @property {string} label - Portion label
- * @property {number} amount - Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+ * @property {number} amount - Price of the product in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
  */
 
 /**
@@ -4369,7 +4370,7 @@
  * @property {string} description - Product description
  * @property {string} start_parameter - Unique bot deep-linking parameter that can be used to generate this invoice
  * @property {string} currency - Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars
- * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+ * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
  */
 
 /**
@@ -4408,7 +4409,7 @@
  * This object contains basic information about a successful payment. Note that if the buyer initiates a chargeback with the relevant payment provider following this transaction, the funds may be debited from your balance. This is outside of Telegram's control.
  * @typedef {Object} SuccessfulPayment
  * @property {string} currency - Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars
- * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+ * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
  * @property {string} invoice_payload - Bot-specified invoice payload
  * @property {number} [subscription_expiration_date] - Optional. Expiration date of the subscription, in Unix time; for recurring payments only
  * @property {boolean} [is_recurring] - Optional. True, if the payment is a recurring payment for a subscription
@@ -4424,7 +4425,7 @@
  * This object contains basic information about a refunded payment.
  * @typedef {Object} RefundedPayment
  * @property {'XTR'} currency - Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars. Currently, always "XTR".
- * @property {number} total_amount - Total refunded price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+ * @property {number} total_amount - Total refunded price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
  * @property {string} invoice_payload - Bot-specified invoice payload
  * @property {string} telegram_payment_charge_id - Telegram payment identifier
  * @property {string} [provider_payment_charge_id] - Optional. Provider payment identifier
@@ -4437,7 +4438,7 @@
  * @property {string} id - Unique query identifier
  * @property {User} from - User who sent the query
  * @property {string} invoice_payload - Bot-specified invoice payload
- * @property {ShippingAddress} shipping_address - User specified shipping address
+ * @property {ShippingAddress} shipping_address - User-specified shipping address
  */
 
 /**
@@ -4447,7 +4448,7 @@
  * @property {string} id - Unique query identifier
  * @property {User} from - User who sent the query
  * @property {string} currency - Three-letter ISO 4217 currency code, or "XTR" for payments in Telegram Stars
- * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45 pass amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
+ * @property {number} total_amount - Total price in the smallest units of the currency (integer, not float/double). For example, for a price of US$ 1.45, total_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies).
  * @property {string} invoice_payload - Bot-specified invoice payload
  * @property {string} [shipping_option_id] - Optional. Identifier of the shipping option chosen by the user
  * @property {OrderInfo} [order_info] - Optional. Order information provided by the user
@@ -4604,7 +4605,7 @@
  * https://core.telegram.org/bots/api#passportdata
  * Describes Telegram Passport data shared with the bot by the user.
  * @typedef {Object} PassportData
- * @property {Array<EncryptedPassportElement>} data - Array with information about documents and other Telegram Passport elements that was shared with the bot
+ * @property {Array<EncryptedPassportElement>} data - Array with information shared with the bot about documents and other Telegram Passport elements
  * @property {EncryptedCredentials} credentials - Encrypted credentials required to decrypt the data
  */
 
@@ -4681,7 +4682,7 @@
 
 /**
  * https://core.telegram.org/bots/api#passportelementerrorreverseside
- * Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse side of the document changes.
+ * Represents an issue with the reverse side of a document. The error is considered resolved when the file with the reverse side of the document changes.
  * @typedef {Object} PassportElementErrorReverseSide
  * @property {string} source - Error source, must be reverse_side
  * @property {string} type - The section of the user's Telegram Passport which has the issue, one of "driver_license", "identity_card"
@@ -4731,7 +4732,7 @@
 
 /**
  * https://core.telegram.org/bots/api#passportelementerrortranslationfiles
- * Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation change.
+ * Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation changes.
  * @typedef {Object} PassportElementErrorTranslationFiles
  * @property {string} source - Error source, must be translation_files
  * @property {string} type - Type of element of the user's Telegram Passport which has the issue, one of "passport", "driver_license", "identity_card", "internal_passport", "utility_bill", "bank_statement", "rental_agreement", "passport_registration", "temporary_registration"
@@ -4751,7 +4752,7 @@
 
 /**
  * https://core.telegram.org/bots/api#game
- * This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.
+ * This object represents a game. Use BotFather to create and edit games; their short names will act as unique identifiers.
  * @typedef {Object} Game
  * @property {string} title - Title of the game
  * @property {string} description - Description of the game
@@ -4810,7 +4811,7 @@
  * @typedef {Object} GetUpdatesParams
  * @property {number} [offset] - Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as getUpdates is called with an offset higher than its update_id. The negative offset can be specified to retrieve updates starting from -offset update from the end of the updates queue. All previous updates will be forgotten.
  * @property {number} [limit] - Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
- * @property {number} [timeout] - Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.
+ * @property {number} [timeout] - Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive; short polling should be used for testing purposes only.
  * @property {Array<string>} [allowed_updates] - A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to getUpdates, so unwanted updates may be received for a short period of time.
  */
 
@@ -4837,14 +4838,14 @@
 
 /**
  * https://core.telegram.org/bots/api#setwebhook
- * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable amount of attempts. Returns True on success.
+ * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable number of attempts. Returns True on success.
  * If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter secret_token. If specified, the request will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as content.
  * @typedef {Object} SetWebhookParams
  * @property {string} url - HTTPS URL to send updates to. Use an empty string to remove webhook integration.
  * @property {InputFile} [certificate] - Upload your public key certificate so that the root certificate in use can be checked. See our self-signed guide for details.
  * @property {string} [ip_address] - The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS
  * @property {number} [max_connections] - The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to 40. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.
- * @property {Array<string>} [allowed_updates] - A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
+ * @property {Array<string>} [allowed_updates] - A JSON-serialized list of the update types you want your bot to receive. For example, specify ["message", "edited_channel_post", "callback_query"] to only receive updates of these types. See Update for a complete list of available update types. Specify an empty list to receive all update types except chat_member, message_reaction, and message_reaction_count (default). If not specified, the previous setting will be used. Please note that this parameter doesn't affect updates created before the call to setWebhook, so unwanted updates may be received for a short period of time.
  * @property {boolean} [drop_pending_updates] - Pass True to drop all pending updates
  * @property {string} [secret_token] - A secret token to be sent in a header "X-Telegram-Bot-Api-Secret-Token" in every webhook request, 1-256 characters. Only characters A-Z, a-z, 0-9, _ and - are allowed. The header is useful to ensure that the request comes from a webhook set by you.
  */
@@ -4853,7 +4854,7 @@
  * https://core.telegram.org/bots/api#setwebhook
  * @interface SetWebhookRequest
  *
- * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable amount of attempts. Returns True on success.
+ * Use this method to specify a URL and receive incoming updates via an outgoing webhook. Whenever there is an update for the bot, we will send an HTTPS POST request to the specified URL, containing a JSON-serialized Update. In case of an unsuccessful request (a request with response HTTP status code different from 2XY), we will repeat the request and give up after a reasonable number of attempts. Returns True on success.
  
  * If you'd like to make sure that the webhook was set by you, you can specify secret data in the parameter secret_token. If specified, the request will contain a header "X-Telegram-Bot-Api-Secret-Token" with the secret token as content.
  * @function setWebhook
@@ -4892,7 +4893,7 @@
  * https://core.telegram.org/bots/api#getwebhookinfo
  * @interface GetWebhookInfoRequest
  *
- * Use this method to get current webhook status. Requires no parameters. On success, returns a WebhookInfo object. If the bot is using getUpdates, will return an object with the url field empty.
+ * Use this method to get the current webhook status. Requires no parameters. On success, returns a WebhookInfo object. If the bot is using getUpdates, it will return an object with the url field empty.
  * @function getWebhookInfo
  * @memberof GetWebhookInfoRequest
 
@@ -4913,7 +4914,7 @@
  * https://core.telegram.org/bots/api#getme
  * @interface GetMeRequest
  *
- * A simple method for testing your bot's authentication token. Requires no parameters. Returns information about the bot in form of a BotFullInfo object.
+ * A simple method for testing your bot's authentication token. Requires no parameters. Returns information about the bot in the form of a BotFullInfo object.
  * @function getMe
  * @memberof GetMeRequest
 
@@ -4930,7 +4931,7 @@
  * https://core.telegram.org/bots/api#logout
  * @interface LogOutRequest
  *
- * Use this method to log out from the cloud Bot API server before launching the bot locally. You must log out the bot before running it locally, otherwise there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log in back to the cloud Bot API server for 10 minutes. Returns True on success. Requires no parameters.
+ * Use this method to log out from the cloud Bot API server before launching the bot locally. You must log out the bot before running it locally; otherwise, there is no guarantee that the bot will receive updates. After a successful call, you can immediately log in on a local server, but will not be able to log back in to the cloud Bot API server for 10 minutes. Returns True on success. Requires no parameters.
  * @function logOut
  * @memberof LogOutRequest
 
@@ -5200,12 +5201,12 @@
  * @property {number} [direct_messages_topic_id] - Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
  * @property {EphemeralMessageParameters} [ephemeral_message_parameters] - A JSON-serialized object containing the parameters of the ephemeral message to send
  * @property {InputFile | string} live_photo - Live photo video to send. The video must be no longer than 10 seconds and must not exceed 10 MB in size. Pass a file_id as String to send a video that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported.
- * @property {InputFile | string} photo - The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported.
- * @property {string} [caption] - Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing
- * @property {string} [parse_mode] - Mode for parsing entities in the video caption. See formatting options for more details.
+ * @property {InputFile | string} photo - The static photo to send. Pass a file_id as String to send a photo that exists on the Telegram servers (recommended) or upload a new photo using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending live photos by a URL is currently unsupported.
+ * @property {string} [caption] - Live photo caption (may also be used when resending live photos by file_id), 0-1024 characters after entities parsing
+ * @property {string} [parse_mode] - Mode for parsing entities in the live photo caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
  * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media
- * @property {boolean} [has_spoiler] - Pass True if the video needs to be covered with a spoiler animation
+ * @property {boolean} [has_spoiler] - Pass True if the live photo needs to be covered with a spoiler animation
  * @property {boolean} [disable_notification] - Sends the message silently. Users will receive a notification with no sound.
  * @property {boolean} [protect_content] - Protects the contents of the sent message from forwarding and saving
  * @property {boolean} [allow_paid_broadcast] - Pass True to allow up to 1000 messages per second, ignoring broadcasting limits for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
@@ -5238,7 +5239,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendaudio
- * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size; this limit may be changed in the future.
  * For sending voice messages, use the sendVoice method instead.
  * @typedef {Object} SendAudioParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
@@ -5253,7 +5254,7 @@
  * @property {number} [duration] - Duration of the audio in seconds
  * @property {string} [performer] - Performer
  * @property {string} [title] - Track name
- * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {boolean} [disable_notification] - Sends the message silently. Users will receive a notification with no sound.
  * @property {boolean} [protect_content] - Protects the contents of the sent message from forwarding and saving
  * @property {boolean} [allow_paid_broadcast] - Pass True to allow up to 1000 messages per second, ignoring broadcasting limits for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
@@ -5271,7 +5272,7 @@
  * https://core.telegram.org/bots/api#sendaudio
  * @interface SendAudioRequest
  *
- * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send audio files, if you want Telegram clients to display them in the music player. Your audio must be in the .MP3 or .M4A format. On success, the sent Message is returned. Bots can currently send audio files of up to 50 MB in size; this limit may be changed in the future.
  
  * For sending voice messages, use the sendVoice method instead.
  * @function sendAudio
@@ -5288,7 +5289,7 @@
 
 /**
  * https://core.telegram.org/bots/api#senddocument
- * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size; this limit may be changed in the future.
  * @typedef {Object} SendDocumentParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5296,7 +5297,7 @@
  * @property {number} [direct_messages_topic_id] - Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
  * @property {EphemeralMessageParameters} [ephemeral_message_parameters] - A JSON-serialized object containing the parameters of the ephemeral message to send
  * @property {InputFile | string} document - File to send. Pass a file_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {string} [caption] - Document caption (may also be used when resending documents by file_id), 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Mode for parsing entities in the document caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -5318,7 +5319,7 @@
  * https://core.telegram.org/bots/api#senddocument
  * @interface SendDocumentRequest
  *
- * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send general files. On success, the sent Message is returned. Bots can currently send files of any type of up to 50 MB in size; this limit may be changed in the future.
  * @function sendDocument
  * @memberof SendDocumentRequest
  * @param { SendDocumentParams } params
@@ -5333,7 +5334,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendvideo
- * Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send video files; Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size; this limit may be changed in the future.
  * @typedef {Object} SendVideoParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5344,7 +5345,7 @@
  * @property {number} [duration] - Duration of sent video in seconds
  * @property {number} [width] - Video width
  * @property {number} [height] - Video height
- * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {InputFile | string} [cover] - Cover for the video in the message. Pass a file_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass "attach://<file_attach_name>" to upload a new one using multipart/form-data under <file_attach_name> name. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {number} [start_timestamp] - Start timestamp for the video in the message
  * @property {string} [caption] - Video caption (may also be used when resending videos by file_id), 0-1024 characters after entities parsing
@@ -5370,7 +5371,7 @@
  * https://core.telegram.org/bots/api#sendvideo
  * @interface SendVideoRequest
  *
- * Use this method to send video files, Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send video files; Telegram clients support MPEG4 videos (other formats may be sent as Document). On success, the sent Message is returned. Bots can currently send video files of up to 50 MB in size; this limit may be changed in the future.
  * @function sendVideo
  * @memberof SendVideoRequest
  * @param { SendVideoParams } params
@@ -5385,7 +5386,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendanimation
- * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
  * @typedef {Object} SendAnimationParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5396,8 +5397,8 @@
  * @property {number} [duration] - Duration of sent animation in seconds
  * @property {number} [width] - Animation width
  * @property {number} [height] - Animation height
- * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
- * @property {string} [caption] - Animation caption (may also be used when resending animation by file_id), 0-1024 characters after entities parsing
+ * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {string} [caption] - Animation caption (may also be used when resending animations by file_id), 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Mode for parsing entities in the animation caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
  * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media
@@ -5419,7 +5420,7 @@
  * https://core.telegram.org/bots/api#sendanimation
  * @interface SendAnimationRequest
  *
- * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send animation files (GIF or H.264/MPEG-4 AVC video without sound). On success, the sent Message is returned. Bots can currently send animation files of up to 50 MB in size; this limit may be changed in the future.
  * @function sendAnimation
  * @memberof SendAnimationRequest
  * @param { SendAnimationParams } params
@@ -5434,7 +5435,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendvoice
- * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size; this limit may be changed in the future.
  * @typedef {Object} SendVoiceParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5463,7 +5464,7 @@
  * https://core.telegram.org/bots/api#sendvoice
  * @interface SendVoiceRequest
  *
- * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size, this limit may be changed in the future.
+ * Use this method to send audio files, if you want Telegram clients to display the file as a playable voice message. For this to work, your audio must be in an .OGG file encoded with OPUS, or in .MP3 format, or in .M4A format (other formats may be sent as Audio or Document). On success, the sent Message is returned. Bots can currently send voice messages of up to 50 MB in size; this limit may be changed in the future.
  * @function sendVoice
  * @memberof SendVoiceRequest
  * @param { SendVoiceParams } params
@@ -5478,7 +5479,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendvideonote
- * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent Message is returned.
+ * Use this method to send a rounded square MPEG4 video up to 1 minute long. On success, the sent Message is returned.
  * @typedef {Object} SendVideoNoteParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5488,7 +5489,7 @@
  * @property {InputFile | string} video_note - Video note to send. Pass a file_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. More information on Sending Files: https://core.telegram.org/bots/api#sending-files. Sending video notes by a URL is currently unsupported.
  * @property {number} [duration] - Duration of sent video in seconds
  * @property {number} [length] - Video width and height, i.e. diameter of the video message
- * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
+ * @property {InputFile | string} [thumbnail] - Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can only be uploaded as a new file, so you can pass "attach://<file_attach_name>" if the thumbnail was uploaded using multipart/form-data under <file_attach_name>. More information on Sending Files: https://core.telegram.org/bots/api#sending-files
  * @property {boolean} [disable_notification] - Sends the message silently. Users will receive a notification with no sound.
  * @property {boolean} [protect_content] - Protects the contents of the sent message from forwarding and saving
  * @property {boolean} [allow_paid_broadcast] - Pass True to allow up to 1000 messages per second, ignoring broadcasting limits for a fee of 0.1 Telegram Stars per message. The relevant Stars will be withdrawn from the bot's balance.
@@ -5506,7 +5507,7 @@
  * https://core.telegram.org/bots/api#sendvideonote
  * @interface SendVideoNoteRequest
  *
- * Use this method to send a rounded square MPEG4 video of up to 1 minute long. On success, the sent Message is returned.
+ * Use this method to send a rounded square MPEG4 video up to 1 minute long. On success, the sent Message is returned.
  * @function sendVideoNote
  * @memberof SendVideoNoteRequest
  * @param { SendVideoNoteParams } params
@@ -5567,7 +5568,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendsharedwidget
- * Use this method to send again a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
+ * Use this method to resend a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
  * @typedef {Object} SendSharedWidgetParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {number} [message_thread_id] - Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
@@ -5593,7 +5594,7 @@
  * https://core.telegram.org/bots/api#sendsharedwidget
  * @interface SendSharedWidgetRequest
  *
- * Use this method to send again a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
+ * Use this method to resend a shared widget created by the bot. Currently, in the production environment, widgets can be sent only to private chats, and sent widgets automatically have protected content and therefore can't be forwarded. On success, the sent Message is returned.
  * @function sendSharedWidget
  * @memberof SendSharedWidgetRequest
  * @param { SendSharedWidgetParams } params
@@ -5616,7 +5617,7 @@
  * @property {number} [direct_messages_topic_id] - Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
  * @property {number} star_count - The number of Telegram Stars that must be paid to buy access to the media; 1-25000
  * @property {Array<InputPaidMedia>} media - A JSON-serialized Array describing the media to be sent; up to 10 items
- * @property {string} [payload] - Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user, use it for your internal processes.
+ * @property {string} [payload] - Bot-defined paid media payload, 0-128 bytes. This will not be displayed to the user; use it for your internal processes.
  * @property {string} [caption] - Media caption, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Mode for parsing entities in the media caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
@@ -5652,7 +5653,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendmediagroup
- * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
+ * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can only be grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
  * @typedef {Object} SendMediaGroupParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username
@@ -5674,7 +5675,7 @@
  * https://core.telegram.org/bots/api#sendmediagroup
  * @interface SendMediaGroupRequest
  *
- * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can be only grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
+ * Use this method to send a group of photos, live photos, videos, documents or audios as an album. Documents and audio files can only be grouped in an album with messages of the same type. On success, an Array of Message objects that were sent is returned.
  * @function sendMediaGroup
  * @memberof SendMediaGroupRequest
  * @param { SendMediaGroupParams } params
@@ -5689,7 +5690,7 @@
 
 /**
  * https://core.telegram.org/bots/api#sendlocation
- * Use this method to send point on the map. On success, the sent Message is returned.
+ * Use this method to send a point on the map. On success, the sent Message is returned.
  * @typedef {Object} SendLocationParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
@@ -5719,7 +5720,7 @@
  * https://core.telegram.org/bots/api#sendlocation
  * @interface SendLocationRequest
  *
- * Use this method to send point on the map. On success, the sent Message is returned.
+ * Use this method to send a point on the map. On success, the sent Message is returned.
  * @function sendLocation
  * @memberof SendLocationRequest
  * @param { SendLocationParams } params
@@ -5836,7 +5837,7 @@
  * @property {boolean} [is_anonymous] - True, if the poll needs to be anonymous, defaults to True
  * @property {string} [type] - Poll type, "quiz" or "regular", defaults to "regular"
  * @property {boolean} [allows_multiple_answers] - Pass True if the poll allows multiple answers, defaults to False
- * @property {boolean} [allows_revoting] - Pass True if the poll allows to change chosen answer options, defaults to False for quizzes and to True for regular polls
+ * @property {boolean} [allows_revoting] - Pass True if the poll allows changing the chosen answer options, defaults to False for quizzes and to True for regular polls
  * @property {boolean} [shuffle_options] - Pass True if the poll options must be shown in random order
  * @property {boolean} [allow_adding_options] - Pass True if answer options can be added to the poll after creation; not supported for anonymous polls and quizzes
  * @property {boolean} [hide_results_until_closes] - Pass True if poll results must be shown only after the poll closes
@@ -6152,7 +6153,7 @@
  * @typedef {Object} BanChatMemberParams
  * @property {number | string} chat_id - Unique identifier for the target group or username of the target supergroup or channel in the format @username
  * @property {number} user_id - Unique identifier of the target user
- * @property {number} [until_date] - Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.
+ * @property {number} [until_date] - Date when the user will be unbanned; Unix time. If the user is banned for more than 366 days or less than 30 seconds from the current time, they are considered to be banned forever. Applied for supergroups and channels only.
  * @property {boolean} [revoke_messages] - Pass True to delete all messages from the chat for the user that is being removed. If False, the user will be able to see messages in the group that were sent before the user was removed. Always True for supergroups and channels.
  */
 
@@ -6199,7 +6200,7 @@
  * @property {number} user_id - Unique identifier of the target user
  * @property {ChatPermissions} permissions - A JSON-serialized object for new user permissions
  * @property {boolean} [use_independent_chat_permissions] - Pass True if chat permissions are set independently. Otherwise, the can_send_other_messages and can_add_web_page_previews permissions will imply the can_send_messages, can_send_audios, can_send_documents, can_send_photos, can_send_videos, can_send_video_notes, and can_send_voice_notes permissions; the can_send_polls permission will imply the can_send_messages permission.
- * @property {number} [until_date] - Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever.
+ * @property {number} [until_date] - Date when restrictions will be lifted for the user; Unix time. If the user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever.
  */
 
 /**
@@ -6227,7 +6228,7 @@
  * @property {boolean} [can_manage_video_chats] - Pass True if the administrator can manage video chats
  * @property {boolean} [can_restrict_members] - Pass True if the administrator can restrict, ban or unban chat members, or access supergroup statistics. For backward compatibility, defaults to True for promotions of channel administrators.
  * @property {boolean} [can_promote_members] - Pass True if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by him)
- * @property {boolean} [can_change_info] - Pass True if the administrator can change chat title, photo and other settings
+ * @property {boolean} [can_change_info] - Pass True if the administrator can change the chat title, photo and other settings
  * @property {boolean} [can_invite_users] - Pass True if the administrator can invite new users to the chat
  * @property {boolean} [can_post_stories] - Pass True if the administrator can post stories to the chat
  * @property {boolean} [can_edit_stories] - Pass True if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive
@@ -6342,7 +6343,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setchatpermissions
- * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+ * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator right. Returns True on success.
  * @typedef {Object} SetChatPermissionsParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {ChatPermissions} permissions - A JSON-serialized object for new default chat permissions
@@ -6353,7 +6354,7 @@
  * https://core.telegram.org/bots/api#setchatpermissions
  * @interface SetChatPermissionsRequest
  *
- * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator rights. Returns True on success.
+ * Use this method to set default chat permissions for all members. The bot must be an administrator in the group or a supergroup for this to work and must have the can_restrict_members administrator right. Returns True on success.
  * @function setChatPermissions
  * @memberof SetChatPermissionsRequest
  * @param { SetChatPermissionsParams } params
@@ -6392,7 +6393,7 @@
 
 /**
  * https://core.telegram.org/bots/api#createchatinvitelink
- * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as ChatInviteLink object.
+ * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
  * @typedef {Object} CreateChatInviteLinkParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target channel in the format @username
  * @property {string} [name] - Invite link name; 0-32 characters
@@ -6409,7 +6410,7 @@
  * https://core.telegram.org/bots/api#createchatinvitelink
  * @interface CreateChatInviteLinkRequest
  *
- * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as ChatInviteLink object.
+ * Use this method to create an additional invite link for a chat. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. The link can be revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
  * @function createChatInviteLink
  * @memberof CreateChatInviteLinkRequest
  * @param { CreateChatInviteLinkParams } params
@@ -6457,7 +6458,7 @@
 
 /**
  * https://core.telegram.org/bots/api#createchatsubscriptioninvitelink
- * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator rights. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
+ * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator right. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
  * @typedef {Object} CreateChatSubscriptionInviteLinkParams
  * @property {number | string} chat_id - Unique identifier for the target channel chat or username of the target channel in the format @username
  * @property {string} [name] - Invite link name; 0-32 characters
@@ -6473,7 +6474,7 @@
  * https://core.telegram.org/bots/api#createchatsubscriptioninvitelink
  * @interface CreateChatSubscriptionInviteLinkRequest
  *
- * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator rights. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
+ * Use this method to create a subscription invite link for a channel chat. The bot must have the can_invite_users administrator right. The link can be edited using the method editChatSubscriptionInviteLink or revoked using the method revokeChatInviteLink. Returns the new invite link as a ChatInviteLink object.
  * @function createChatSubscriptionInviteLink
  * @memberof CreateChatSubscriptionInviteLinkRequest
  * @param { CreateChatSubscriptionInviteLinkParams } params
@@ -6488,7 +6489,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editchatsubscriptioninvitelink
- * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator rights. Returns the edited invite link as a ChatInviteLink object.
+ * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator right. Returns the edited invite link as a ChatInviteLink object.
  * @typedef {Object} EditChatSubscriptionInviteLinkParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target channel in the format @username
  * @property {string} invite_link - The invite link to edit
@@ -6503,7 +6504,7 @@
  * https://core.telegram.org/bots/api#editchatsubscriptioninvitelink
  * @interface EditChatSubscriptionInviteLinkRequest
  *
- * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator rights. Returns the edited invite link as a ChatInviteLink object.
+ * Use this method to edit a subscription invite link created by the bot. The bot must have the can_invite_users administrator right. Returns the edited invite link as a ChatInviteLink object.
  * @function editChatSubscriptionInviteLink
  * @memberof EditChatSubscriptionInviteLinkRequest
  * @param { EditChatSubscriptionInviteLinkParams } params
@@ -6518,7 +6519,7 @@
 
 /**
  * https://core.telegram.org/bots/api#revokechatinvitelink
- * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as ChatInviteLink object.
+ * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as a ChatInviteLink object.
  * @typedef {Object} RevokeChatInviteLinkParams
  * @property {number | string} chat_id - Unique identifier of the target chat or username of the target channel in the format @username
  * @property {string} invite_link - The invite link to revoke
@@ -6532,7 +6533,7 @@
  * https://core.telegram.org/bots/api#revokechatinvitelink
  * @interface RevokeChatInviteLinkRequest
  *
- * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as ChatInviteLink object.
+ * Use this method to revoke an invite link created by the bot. If the primary link is revoked, a new link is automatically generated. The bot must be an administrator in the chat for this to work and must have the appropriate administrator rights. Returns the revoked invite link as a ChatInviteLink object.
  * @function revokeChatInviteLink
  * @memberof RevokeChatInviteLinkRequest
  * @param { RevokeChatInviteLinkParams } params
@@ -7056,7 +7057,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editforumtopic
- * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to edit the name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @typedef {Object} EditForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {number} message_thread_id - Unique identifier for the target message thread of the forum topic
@@ -7068,7 +7069,7 @@
  * https://core.telegram.org/bots/api#editforumtopic
  * @interface EditForumTopicRequest
  *
- * Use this method to edit name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to edit the name and icon of a topic in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @function editForumTopic
  * @memberof EditForumTopicRequest
  * @param { EditForumTopicParams } params
@@ -7079,7 +7080,7 @@
 
 /**
  * https://core.telegram.org/bots/api#closeforumtopic
- * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @typedef {Object} CloseForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {number} message_thread_id - Unique identifier for the target message thread of the forum topic
@@ -7089,7 +7090,7 @@
  * https://core.telegram.org/bots/api#closeforumtopic
  * @interface CloseForumTopicRequest
  *
- * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to close an open topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @function closeForumTopic
  * @memberof CloseForumTopicRequest
  * @param { CloseForumTopicParams } params
@@ -7100,7 +7101,7 @@
 
 /**
  * https://core.telegram.org/bots/api#reopenforumtopic
- * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @typedef {Object} ReopenForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {number} message_thread_id - Unique identifier for the target message thread of the forum topic
@@ -7110,7 +7111,7 @@
  * https://core.telegram.org/bots/api#reopenforumtopic
  * @interface ReopenForumTopicRequest
  *
- * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights, unless it is the creator of the topic. Returns True on success.
+ * Use this method to reopen a closed topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right, unless it is the creator of the topic. Returns True on success.
  * @function reopenForumTopic
  * @memberof ReopenForumTopicRequest
  * @param { ReopenForumTopicParams } params
@@ -7121,7 +7122,7 @@
 
 /**
  * https://core.telegram.org/bots/api#deleteforumtopic
- * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator rights. Returns True on success.
+ * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator right. Returns True on success.
  * @typedef {Object} DeleteForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {number} message_thread_id - Unique identifier for the target message thread of the forum topic
@@ -7131,7 +7132,7 @@
  * https://core.telegram.org/bots/api#deleteforumtopic
  * @interface DeleteForumTopicRequest
  *
- * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator rights. Returns True on success.
+ * Use this method to delete a forum topic along with all its messages in a forum supergroup chat or a private chat with a user. In the case of a supergroup chat the bot must be an administrator in the chat for this to work and must have the can_delete_messages administrator right. Returns True on success.
  * @function deleteForumTopic
  * @memberof DeleteForumTopicRequest
  * @param { DeleteForumTopicParams } params
@@ -7163,7 +7164,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editgeneralforumtopic
- * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @typedef {Object} EditGeneralForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  * @property {string} name - New topic name, 1-128 characters
@@ -7173,7 +7174,7 @@
  * https://core.telegram.org/bots/api#editgeneralforumtopic
  * @interface EditGeneralForumTopicRequest
  *
- * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to edit the name of the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @function editGeneralForumTopic
  * @memberof EditGeneralForumTopicRequest
  * @param { EditGeneralForumTopicParams } params
@@ -7184,7 +7185,7 @@
 
 /**
  * https://core.telegram.org/bots/api#closegeneralforumtopic
- * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @typedef {Object} CloseGeneralForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  */
@@ -7193,7 +7194,7 @@
  * https://core.telegram.org/bots/api#closegeneralforumtopic
  * @interface CloseGeneralForumTopicRequest
  *
- * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to close an open 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @function closeGeneralForumTopic
  * @memberof CloseGeneralForumTopicRequest
  * @param { CloseGeneralForumTopicParams } params
@@ -7204,7 +7205,7 @@
 
 /**
  * https://core.telegram.org/bots/api#reopengeneralforumtopic
- * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically unhidden if it was hidden. Returns True on success.
+ * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically unhidden if it was hidden. Returns True on success.
  * @typedef {Object} ReopenGeneralForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  */
@@ -7213,7 +7214,7 @@
  * https://core.telegram.org/bots/api#reopengeneralforumtopic
  * @interface ReopenGeneralForumTopicRequest
  *
- * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically unhidden if it was hidden. Returns True on success.
+ * Use this method to reopen a closed 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically unhidden if it was hidden. Returns True on success.
  * @function reopenGeneralForumTopic
  * @memberof ReopenGeneralForumTopicRequest
  * @param { ReopenGeneralForumTopicParams } params
@@ -7224,7 +7225,7 @@
 
 /**
  * https://core.telegram.org/bots/api#hidegeneralforumtopic
- * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically closed if it was open. Returns True on success.
+ * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically closed if it was open. Returns True on success.
  * @typedef {Object} HideGeneralForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  */
@@ -7233,7 +7234,7 @@
  * https://core.telegram.org/bots/api#hidegeneralforumtopic
  * @interface HideGeneralForumTopicRequest
  *
- * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. The topic will be automatically closed if it was open. Returns True on success.
+ * Use this method to hide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. The topic will be automatically closed if it was open. Returns True on success.
  * @function hideGeneralForumTopic
  * @memberof HideGeneralForumTopicRequest
  * @param { HideGeneralForumTopicParams } params
@@ -7244,7 +7245,7 @@
 
 /**
  * https://core.telegram.org/bots/api#unhidegeneralforumtopic
- * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @typedef {Object} UnhideGeneralForumTopicParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target supergroup in the format @username
  */
@@ -7253,7 +7254,7 @@
  * https://core.telegram.org/bots/api#unhidegeneralforumtopic
  * @interface UnhideGeneralForumTopicRequest
  *
- * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator rights. Returns True on success.
+ * Use this method to unhide the 'General' topic in a forum supergroup chat. The bot must be an administrator in the chat for this to work and must have the can_manage_topics administrator right. Returns True on success.
  * @function unhideGeneralForumTopic
  * @memberof UnhideGeneralForumTopicRequest
  * @param { UnhideGeneralForumTopicParams } params
@@ -7521,7 +7522,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setmysettings
- * Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
+ * Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
  * @typedef {Object} SetMySettingsParams
  * @property {boolean} [supports_inline_queries] - Pass True to enable inline mode for the bot or False to disable it
  * @property {string} [inline_query_placeholder] - New placeholder for inline queries, which is shown in the input field after the bot's username. Pass an empty string to use the default placeholder.
@@ -7544,7 +7545,7 @@
  * https://core.telegram.org/bots/api#setmysettings
  * @interface SetMySettingsRequest
  *
- * Use this method to change settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
+ * Use this method to change the settings of the bot. Settings that aren't specified remain unchanged. Returns True on success.
  * @function setMySettings
  * @memberof SetMySettingsRequest
  * @param { SetMySettingsParams } [params]
@@ -7879,7 +7880,7 @@
  * https://core.telegram.org/bots/api#getmydefaultadministratorrights
  * Use this method to get the current default administrator rights of the bot. Returns ChatAdministratorRights on success.
  * @typedef {Object} GetMyDefaultAdministratorRightsParams
- * @property {boolean} [for_channels] - Pass True to get default administrator rights of the bot in channels. Otherwise, default administrator rights of the bot for groups and supergroups will be returned.
+ * @property {boolean} [for_channels] - Pass True to get the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be returned.
  */
 
 /**
@@ -8045,7 +8046,7 @@
  * https://core.telegram.org/bots/api#removechatverification
  * Removes verification from a chat that is currently verified on behalf of the organization represented by the bot. Returns True on success.
  * @typedef {Object} RemoveChatVerificationParams
- * @property {number | string} chat_id - Unique identifier for the target chat or username of the target bot or channel in the format @username
+ * @property {number | string} chat_id - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username
  */
 
 /**
@@ -8063,7 +8064,7 @@
 
 /**
  * https://core.telegram.org/bots/api#readbusinessmessage
- * Marks incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
+ * Marks an incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
  * @typedef {Object} ReadBusinessMessageParams
  * @property {string} business_connection_id - Unique identifier of the business connection on behalf of which to read the message
  * @property {number} chat_id - Unique identifier of the chat in which the message was received. The chat must have been active in the last 24 hours.
@@ -8074,7 +8075,7 @@
  * https://core.telegram.org/bots/api#readbusinessmessage
  * @interface ReadBusinessMessageRequest
  *
- * Marks incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
+ * Marks an incoming message as read on behalf of a business account. Requires the can_read_messages business bot right. Returns True on success.
  * @function readBusinessMessage
  * @memberof ReadBusinessMessageRequest
  * @param { ReadBusinessMessageParams } params
@@ -8085,7 +8086,7 @@
 
 /**
  * https://core.telegram.org/bots/api#deletebusinessmessages
- * Delete messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
+ * Deletes messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
  * @typedef {Object} DeleteBusinessMessagesParams
  * @property {string} business_connection_id - Unique identifier of the business connection on behalf of which to delete the messages
  * @property {Array<number>} message_ids - A JSON-serialized list of 1-100 identifiers of messages to delete. All messages must be from the same chat. See deleteMessage for limitations on which messages can be deleted.
@@ -8095,7 +8096,7 @@
  * https://core.telegram.org/bots/api#deletebusinessmessages
  * @interface DeleteBusinessMessagesRequest
  *
- * Delete messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
+ * Deletes messages on behalf of a business account. Requires the can_delete_sent_messages business bot right to delete messages sent by the bot itself, or the can_delete_all_messages business bot right to delete any message. Returns True on success.
  * @function deleteBusinessMessages
  * @memberof DeleteBusinessMessagesRequest
  * @param { DeleteBusinessMessagesParams } params
@@ -8106,7 +8107,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setbusinessaccountname
- * Changes the first and last name of a managed business account. Requires the can_change_name business bot right. Returns True on success.
+ * Changes the first and last name of a managed business account. Requires the can_edit_name business bot right. Returns True on success.
  * @typedef {Object} SetBusinessAccountNameParams
  * @property {string} business_connection_id - Unique identifier of the business connection
  * @property {string} first_name - The new value of the first name for the business account; 1-64 characters
@@ -8117,7 +8118,7 @@
  * https://core.telegram.org/bots/api#setbusinessaccountname
  * @interface SetBusinessAccountNameRequest
  *
- * Changes the first and last name of a managed business account. Requires the can_change_name business bot right. Returns True on success.
+ * Changes the first and last name of a managed business account. Requires the can_edit_name business bot right. Returns True on success.
  * @function setBusinessAccountName
  * @memberof SetBusinessAccountNameRequest
  * @param { SetBusinessAccountNameParams } params
@@ -8128,7 +8129,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setbusinessaccountusername
- * Changes the username of a managed business account. Requires the can_change_username business bot right. Returns True on success.
+ * Changes the username of a managed business account. Requires the can_edit_username business bot right. Returns True on success.
  * @typedef {Object} SetBusinessAccountUsernameParams
  * @property {string} business_connection_id - Unique identifier of the business connection
  * @property {string} [username] - The new value of the username for the business account; 0-32 characters
@@ -8138,7 +8139,7 @@
  * https://core.telegram.org/bots/api#setbusinessaccountusername
  * @interface SetBusinessAccountUsernameRequest
  *
- * Changes the username of a managed business account. Requires the can_change_username business bot right. Returns True on success.
+ * Changes the username of a managed business account. Requires the can_edit_username business bot right. Returns True on success.
  * @function setBusinessAccountUsername
  * @memberof SetBusinessAccountUsernameRequest
  * @param { SetBusinessAccountUsernameParams } params
@@ -8149,7 +8150,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setbusinessaccountbio
- * Changes the bio of a managed business account. Requires the can_change_bio business bot right. Returns True on success.
+ * Changes the bio of a managed business account. Requires the can_edit_bio business bot right. Returns True on success.
  * @typedef {Object} SetBusinessAccountBioParams
  * @property {string} business_connection_id - Unique identifier of the business connection
  * @property {string} [bio] - The new value of the bio for the business account; 0-140 characters
@@ -8159,7 +8160,7 @@
  * https://core.telegram.org/bots/api#setbusinessaccountbio
  * @interface SetBusinessAccountBioRequest
  *
- * Changes the bio of a managed business account. Requires the can_change_bio business bot right. Returns True on success.
+ * Changes the bio of a managed business account. Requires the can_edit_bio business bot right. Returns True on success.
  * @function setBusinessAccountBio
  * @memberof SetBusinessAccountBioRequest
  * @param { SetBusinessAccountBioParams } params
@@ -8295,7 +8296,7 @@
  * @property {boolean} [exclude_unique] - Pass True to exclude unique gifts
  * @property {boolean} [exclude_from_blockchain] - Pass True to exclude gifts that were assigned from the TON blockchain and can't be resold or transferred in Telegram
  * @property {boolean} [sort_by_price] - Pass True to sort results by gift price instead of send date. Sorting is applied before pagination.
- * @property {string} [offset] - Offset of the first entry to return as received from the previous request; use empty string to get the first chunk of results
+ * @property {string} [offset] - Offset of the first entry to return as received from the previous request; use an empty string to get the first chunk of results
  * @property {number} [limit] - The maximum number of gifts to be returned; 1-100. Defaults to 100.
  */
 
@@ -8450,7 +8451,7 @@
  * @property {string} business_connection_id - Unique identifier of the business connection
  * @property {string} owned_gift_id - Unique identifier of the regular gift that should be upgraded to a unique one
  * @property {boolean} [keep_original_details] - Pass True to keep the original gift text, sender and receiver in the upgraded gift
- * @property {number} [star_count] - The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If gift.prepaid_upgrade_star_count > 0, then pass 0, otherwise, the can_transfer_stars business bot right is required and gift.upgrade_star_count must be passed.
+ * @property {number} [star_count] - The amount of Telegram Stars that will be paid for the upgrade from the business account balance. If gift.prepaid_upgrade_star_count > 0, then pass 0; otherwise, the can_transfer_stars business bot right is required and gift.upgrade_star_count must be passed.
  */
 
 /**
@@ -8468,11 +8469,11 @@
 
 /**
  * https://core.telegram.org/bots/api#transfergift
- * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires can_transfer_stars business bot right if the transfer is paid. Returns True on success.
+ * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires the can_transfer_stars business bot right if the transfer is paid. Returns True on success.
  * @typedef {Object} TransferGiftParams
  * @property {string} business_connection_id - Unique identifier of the business connection
- * @property {string} owned_gift_id - Unique identifier of the regular gift that should be transferred
- * @property {number} new_owner_chat_id - Unique identifier of the chat which will own the gift. The chat must be active in the last 24 hours.
+ * @property {string} owned_gift_id - Unique identifier of the unique gift that should be transferred
+ * @property {number} new_owner_chat_id - Unique identifier of the chat which will own the gift. The chat must have been active in the last 24 hours.
  * @property {number} [star_count] - The amount of Telegram Stars that will be paid for the transfer from the business account balance. If positive, then the can_transfer_stars business bot right is required.
  */
 
@@ -8480,7 +8481,7 @@
  * https://core.telegram.org/bots/api#transfergift
  * @interface TransferGiftRequest
  *
- * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires can_transfer_stars business bot right if the transfer is paid. Returns True on success.
+ * Transfers an owned unique gift to another user. Requires the can_transfer_and_upgrade_gifts business bot right. Requires the can_transfer_stars business bot right if the transfer is paid. Returns True on success.
  * @function transferGift
  * @memberof TransferGiftRequest
  * @param { TransferGiftParams } params
@@ -8727,7 +8728,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editmessagetext
- * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @typedef {Object} EditMessageTextParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8737,7 +8738,7 @@
  * @property {string} [parse_mode] - Mode for parsing entities in the message text. See formatting options for more details.
  * @property {Array<MessageEntity>} [entities] - A JSON-serialized list of special entities that appear in message text, which can be specified instead of parse_mode
  * @property {LinkPreviewOptions} [link_preview_options] - Link preview generation options for the message
- * @property {InputRichMessage} [rich_message] - New rich content of the message; required if text isn't specified. Direct upload of new files and explicit upload of files by a URL isn't supported when an inline message is edited.
+ * @property {InputRichMessage} [rich_message] - New rich content of the message; required if text isn't specified. Direct upload of new files and explicit upload of files by a URL aren't supported when an inline message is edited.
  * @property {InlineKeyboardMarkup} [reply_markup] - A JSON-serialized object for an inline keyboard
  */
 
@@ -8749,7 +8750,7 @@
  * https://core.telegram.org/bots/api#editmessagetext
  * @interface EditMessageTextRequest
  *
- * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit text, rich and game messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @function editMessageText
  * @memberof EditMessageTextRequest
  * @param { EditMessageTextParams } [params]
@@ -8764,7 +8765,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editmessagecaption
- * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @typedef {Object} EditMessageCaptionParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8773,7 +8774,7 @@
  * @property {string} [caption] - New caption of the message, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Mode for parsing entities in the message caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
- * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media. Supported only for animation, photo and video messages.
+ * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media. Supported only for animation, live photo, paid media, photo, video and widget messages.
  * @property {InlineKeyboardMarkup} [reply_markup] - A JSON-serialized object for an inline keyboard
  */
 
@@ -8785,7 +8786,7 @@
  * https://core.telegram.org/bots/api#editmessagecaption
  * @interface EditMessageCaptionRequest
  *
- * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit captions of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @function editMessageCaption
  * @memberof EditMessageCaptionRequest
  * @param { EditMessageCaptionParams } [params]
@@ -8800,7 +8801,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editmessagemedia
- * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with a media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @typedef {Object} EditMessageMediaParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8818,7 +8819,7 @@
  * https://core.telegram.org/bots/api#editmessagemedia
  * @interface EditMessageMediaRequest
  *
- * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with a media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit animation, audio, document, live photo, photo, or video messages, or to replace a text or a rich message with media. If a message is part of a message album, then it can be edited only to an audio for audio albums, only to a document for document albums and to a photo, a live photo, or a video otherwise. When an inline message is edited, a new file can't be uploaded; use a previously uploaded file via its file_id or specify a URL. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @function editMessageMedia
  * @memberof EditMessageMediaRequest
  * @param { EditMessageMediaParams } params
@@ -8833,7 +8834,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editmessagelivelocation
- * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned.
+ * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned.
  * @typedef {Object} EditMessageLiveLocationParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8856,7 +8857,7 @@
  * https://core.telegram.org/bots/api#editmessagelivelocation
  * @interface EditMessageLiveLocationRequest
  *
- * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned.
+ * Use this method to edit live location messages. A location can be edited until its live_period expires or editing is explicitly disabled by a call to stopMessageLiveLocation. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned.
  * @function editMessageLiveLocation
  * @memberof EditMessageLiveLocationRequest
  * @param { EditMessageLiveLocationParams } params
@@ -8871,7 +8872,7 @@
 
 /**
  * https://core.telegram.org/bots/api#stopmessagelivelocation
- * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned, otherwise True is returned.
+ * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned; otherwise, True is returned.
  * @typedef {Object} StopMessageLiveLocationParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8888,7 +8889,7 @@
  * https://core.telegram.org/bots/api#stopmessagelivelocation
  * @interface StopMessageLiveLocationRequest
  *
- * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned, otherwise True is returned.
+ * Use this method to stop updating a live location message before live_period expires. On success, if the message is not an inline message, the edited Message is returned; otherwise, True is returned.
  * @function stopMessageLiveLocation
  * @memberof StopMessageLiveLocationRequest
  * @param { StopMessageLiveLocationParams } [params]
@@ -8905,7 +8906,7 @@
  * https://core.telegram.org/bots/api#editmessagechecklist
  * Use this method to edit a checklist on behalf of a connected business account. On success, the edited Message is returned.
  * @typedef {Object} EditMessageChecklistParams
- * @property {string} business_connection_id - Unique identifier of the business connection on behalf of which the message will be sent
+ * @property {string} business_connection_id - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target bot in the format @username
  * @property {number} message_id - Unique identifier for the target message
  * @property {InputChecklist} checklist - A JSON-serialized object for the new checklist
@@ -8981,7 +8982,7 @@
 
 /**
  * https://core.telegram.org/bots/api#editmessagereplymarkup
- * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @typedef {Object} EditMessageReplyMarkupParams
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message to be edited was sent
  * @property {number | string} [chat_id] - Required if inline_message_id is not specified. Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username.
@@ -8998,7 +8999,7 @@
  * https://core.telegram.org/bots/api#editmessagereplymarkup
  * @interface EditMessageReplyMarkupRequest
  *
- * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned, otherwise True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
+ * Use this method to edit only the reply markup of messages. On success, if the edited message is not an inline message, the edited Message is returned; otherwise, True is returned. Note that business messages that were not sent by the bot and do not contain an inline keyboard can only be edited within 48 hours from the time they were sent.
  * @function editMessageReplyMarkup
  * @memberof EditMessageReplyMarkupRequest
  * @param { EditMessageReplyMarkupParams } [params]
@@ -9104,7 +9105,7 @@
  * @property {string} [caption] - New caption of the message, 0-1024 characters after entities parsing
  * @property {string} [parse_mode] - Mode for parsing entities in the message caption. See formatting options for more details.
  * @property {Array<MessageEntity>} [caption_entities] - A JSON-serialized list of special entities that appear in the caption, which can be specified instead of parse_mode
- * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media. Supported only for animation, photo and video messages.
+ * @property {boolean} [show_caption_above_media] - Pass True if the caption must be shown above the message media. Supported only for animation, live photo, photo and video messages.
  * @property {InlineKeyboardMarkup} [reply_markup] - A JSON-serialized object for an inline keyboard
  */
 
@@ -9150,7 +9151,7 @@
  * @typedef {Object} ApproveSuggestedPostParams
  * @property {number} chat_id - Unique identifier for the target direct messages chat
  * @property {number} message_id - Identifier of a suggested post message to approve
- * @property {number} [send_date] - Point in time (Unix timestamp) when the post is expected to be published; omit if the date has already been specified when the suggested post was created. If specified, then the date must be not more than 2678400 seconds (30 days) in the future.
+ * @property {number} [send_date] - Point in time (Unix timestamp) when the post is expected to be published; omit if the date has already been specified when the suggested post was created. If specified, then the date must not be more than 2678400 seconds (30 days) in the future.
  */
 
 /**
@@ -9198,8 +9199,8 @@
  * - Bots can delete incoming messages in private chats.
  * - Bots granted can_post_messages permissions can delete outgoing messages in channels.
  * - If the bot is an administrator of a group, it can delete any message there.
- * - If the bot has can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
- * - If the bot has can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
+ * - If the bot has the can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
+ * - If the bot has the can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
  * Returns True on success.
  * @typedef {Object} DeleteMessageParams
  * @property {number | string} chat_id - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username
@@ -9226,9 +9227,9 @@
  
  * - If the bot is an administrator of a group, it can delete any message there.
  
- * - If the bot has can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
+ * - If the bot has the can_delete_messages administrator right in a supergroup or a channel, it can delete any message there.
  
- * - If the bot has can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
+ * - If the bot has the can_manage_direct_messages administrator right in a channel, it can delete any message in the corresponding direct messages chat.
  
  * Returns True on success.
  * @function deleteMessage
@@ -9591,7 +9592,7 @@
  * Use this method to change search keywords assigned to a regular or custom emoji sticker. The sticker must belong to a sticker set created by the bot. Returns True on success.
  * @typedef {Object} SetStickerKeywordsParams
  * @property {string} sticker - File identifier of the sticker
- * @property {Array<string>} [keywords] - A JSON-serialized list of 0-20 search keywords for the sticker with total length of up to 64 characters
+ * @property {Array<string>} [keywords] - A JSON-serialized list of 0-20 search keywords for the sticker with a total length of up to 64 characters
  */
 
 /**
@@ -9717,7 +9718,7 @@
  * https://core.telegram.org/bots/api#sendrichmessage
  * Use this method to send rich messages. If the message contains a block with a media element, then the bot must have the right to send the media to the chat. On success, the sent Message is returned.
  * @typedef {Object} SendRichMessageParams
- * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent. Bot can send rich messages on behalf of a business account only if the corresponding user can send rich messages.
+ * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the message will be sent. The bot can send rich messages on behalf of a business account only if the corresponding user can send rich messages.
  * @property {number | string} [chat_id] - Unique identifier for the target chat or username of the target bot, supergroup, or channel in the format @username; required unless the message is sent as an ephemeral reply to a callback query
  * @property {number} [message_thread_id] - Unique identifier for the target message thread (topic) of a forum; for forum supergroups and private chats of bots with forum topic mode enabled only
  * @property {number} [direct_messages_topic_id] - Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
@@ -9760,7 +9761,7 @@
  * @property {number} chat_id - Unique identifier for the target private chat
  * @property {number} [message_thread_id] - Unique identifier for the target message thread
  * @property {number} draft_id - Unique identifier of the message draft; must be non-zero. Changes to drafts with the same identifier are animated. Otherwise, the draft is replaced without animation.
- * @property {InputRichMessage} rich_message - The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL isn't supported.
+ * @property {InputRichMessage} rich_message - The partial message to be streamed. Direct upload of new files and explicit upload of files by a URL aren't supported.
  * @property {boolean} [can_stop] - Pass True to show the user a button to stop further drafts. The bot will receive an Update "stopped_message_generation" if the user presses the button.
  * @property {boolean} [keep_on_stop] - Pass True to keep the draft in the chat when the button is pressed. The draft will still disappear after a short time or if the bot sends a message. To fully preserve the partial draft, the bot should send it as a new message.
  */
@@ -9815,14 +9816,14 @@
  * @property {number} [direct_messages_topic_id] - Identifier of the direct messages topic to which the message will be sent; required if the message is sent to a direct messages chat
  * @property {string} title - Product name, 1-32 characters
  * @property {string} description - Product description, 1-255 characters
- * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.
+ * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes.
  * @property {string} [provider_token] - Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
  * @property {string} currency - Three-letter ISO 4217 currency code, see more on currencies. Pass "XTR" for payments in Telegram Stars.
  * @property {Array<LabeledPrice>} prices - Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars.
- * @property {number} [max_tip_amount] - The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
- * @property {Array<number>} [suggested_tip_amounts] - A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount.
+ * @property {number} [max_tip_amount] - The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
+ * @property {Array<number>} [suggested_tip_amounts] - A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount.
  * @property {string} [start_parameter] - Unique deep-linking parameter. If left empty, forwarded copies of the sent message will have a Pay button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a URL button with a deep link to the bot (instead of a Pay button), with the value used as the start parameter.
- * @property {string} [provider_data] - JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
+ * @property {string} [provider_data] - JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider.
  * @property {string} [photo_url] - URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.
  * @property {number} [photo_size] - Photo size in bytes
  * @property {number} [photo_width] - Photo width
@@ -9871,14 +9872,14 @@
  * @property {string} [business_connection_id] - Unique identifier of the business connection on behalf of which the link will be created. For payments in Telegram Stars only.
  * @property {string} title - Product name, 1-32 characters
  * @property {string} description - Product description, 1-255 characters
- * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.
+ * @property {string} payload - Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user; use it for your internal processes.
  * @property {string} [provider_token] - Payment provider token, obtained via @BotFather. Pass an empty string for payments in Telegram Stars.
  * @property {string} currency - Three-letter ISO 4217 currency code, see more on currencies. Pass "XTR" for payments in Telegram Stars.
  * @property {Array<LabeledPrice>} prices - Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in Telegram Stars.
- * @property {number} [subscription_period] - The number of seconds the subscription will be active for before the next payment. The currency must be set to "XTR" (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must no exceed 10000 Telegram Stars.
- * @property {number} [max_tip_amount] - The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
- * @property {Array<number>} [suggested_tip_amounts] - A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed max_tip_amount.
- * @property {string} [provider_data] - JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.
+ * @property {number} [subscription_period] - The number of seconds the subscription will be active for before the next payment. The currency must be set to "XTR" (Telegram Stars) if the parameter is used. Currently, it must always be 2592000 (30 days) if specified. Any number of subscriptions can be active for a given bot at the same time, including multiple concurrent subscriptions from the same user. Subscription price must not exceed 10000 Telegram Stars.
+ * @property {number} [max_tip_amount] - The maximum accepted amount for tips in the smallest units of the currency (integer, not float/double). For example, for a maximum tip of US$ 1.45 pass max_tip_amount = 145. See the exp parameter in currencies.json; it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in Telegram Stars.
+ * @property {Array<number>} [suggested_tip_amounts] - A JSON-serialized Array of suggested amounts of tips in the smallest units of the currency (integer, not float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increasing order and must not exceed max_tip_amount.
+ * @property {string} [provider_data] - JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of the required fields should be provided by the payment provider.
  * @property {string} [photo_url] - URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service.
  * @property {number} [photo_size] - Photo size in bytes
  * @property {number} [photo_width] - Photo width
@@ -9920,7 +9921,7 @@
  * @property {string} shipping_query_id - Unique identifier for the query to be answered
  * @property {boolean} ok - Pass True if delivery to the specified address is possible and False if there are any problems (for example, if delivery to the specified address is not possible)
  * @property {Array<ShippingOption>} [shipping_options] - Required if ok is True. A JSON-serialized Array of available shipping options.
- * @property {string} [error_message] - Required if ok is False. Error message in human readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable"). Telegram will display this message to the user.
+ * @property {string} [error_message] - Required if ok is False. Error message in human-readable form that explains why it is impossible to complete the order (e.g. "Sorry, delivery to your desired address is unavailable"). Telegram will display this message to the user.
  */
 
 /**
@@ -9942,7 +9943,7 @@
  * @typedef {Object} AnswerPreCheckoutQueryParams
  * @property {string} pre_checkout_query_id - Unique identifier for the query to be answered
  * @property {boolean} ok - Specify True if everything is alright (goods are available, etc.) and the bot is ready to proceed with the order. Use False if there are any problems.
- * @property {string} [error_message] - Required if ok is False. Error message in human readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.
+ * @property {string} [error_message] - Required if ok is False. Error message in human-readable form that explains the reason for failure to proceed with the checkout (e.g. "Sorry, somebody just bought the last of our amazing black T-shirts while you were busy filling out your payment details. Please choose a different color or garment!"). Telegram will display this message to the user.
  */
 
 /**
@@ -10053,7 +10054,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setpassportdataerrors
- * Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
+ * Informs a user that some of the Telegram Passport elements they provided contain errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
  * Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.
  * @typedef {Object} SetPassportDataErrorsParams
  * @property {number} user_id - User identifier
@@ -10064,7 +10065,7 @@
  * https://core.telegram.org/bots/api#setpassportdataerrors
  * @interface SetPassportDataErrorsRequest
  *
- * Informs a user that some of the Telegram Passport elements they provided contains errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
+ * Informs a user that some of the Telegram Passport elements they provided contain errors. The user will not be able to re-submit their Passport to you until the errors are fixed (the contents of the field for which you returned the error must change). Returns True on success.
  
  * Use this if the data submitted by the user doesn't satisfy the standards your service requires for any reason. For example, if a birthday date seems invalid, a submitted document is blurry, a scan shows evidence of tampering, etc. Supply some details in the error message to make sure the user knows how to correct the issues.
  * @function setPassportDataErrors
@@ -10114,7 +10115,7 @@
 
 /**
  * https://core.telegram.org/bots/api#setgamescore
- * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned, otherwise True is returned. Returns an error, if the new score is not greater than the user's current score in the chat and force is False.
+ * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned; otherwise, True is returned. Returns an error if the new score is not greater than the user's current score in the chat and force is False.
  * @typedef {Object} SetGameScoreParams
  * @property {number} user_id - User identifier
  * @property {number} score - New score, must be non-negative
@@ -10133,7 +10134,7 @@
  * https://core.telegram.org/bots/api#setgamescore
  * @interface SetGameScoreRequest
  *
- * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned, otherwise True is returned. Returns an error, if the new score is not greater than the user's current score in the chat and force is False.
+ * Use this method to set the score of the specified user in a game message. On success, if the message is not an inline message, the Message is returned; otherwise, True is returned. Returns an error if the new score is not greater than the user's current score in the chat and force is False.
  * @function setGameScore
  * @memberof SetGameScoreRequest
  * @param { SetGameScoreParams } params
